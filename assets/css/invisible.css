@@ -1,0 +1,261 @@
+:root{
+    /* Dark */
+    --background-dark-color:#2f323a;
+    --background-dark-IMG:url("/assets/imgs/PtAbs.png");
+    --box-dark-color:#373a44;
+    --main-dark-background:#3f425f3a;
+    --primary-dark-font-color:#c1cdd6;
+    --boxDashed-dark-color:#7280e6;
+    /* Light */
+    --background-light-color:#fff;
+    --background-light-IMG:url("/assets/imgs/PtAbs2.png");
+    --box-light-color:rgb(248, 248, 248);
+    --main-light-background:rgb(238, 238, 238);
+    --primary-light-font-color:#696969;
+    --boxDashed-light-color:#7280e6;
+    /*Default*/
+    --background-IMG:var(--background-dark-IMG);
+    --background-color:var(--background-dark-color);
+    --box-color:var(--box-dark-color);
+    --main-background:var(--main-dark-background);
+    --primary-font-color:var(--primary-dark-font-color);
+    --boxDashed-color:var(--boxDashed-dark-color)
+        
+}
+@media(prefers-color-scheme:light){
+    :root{
+        --background-IMG:var(--background-light-IMG);
+        --background-color:var(--background-light-color);
+        --box-color:var(--box-light-color);
+        --primary-font-color:var(--primary-light-font-color);
+        --main-background:var(--main-light-background);
+    }
+}
+
+body {
+    margin:0;padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    background-color: #292b31;
+    text-decoration:none;
+}
+*{
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    color:var(--primary-font-color);
+    box-sizing: border-box;
+    transition: .5s ease-in-out;
+}
+.mainCont{
+    background-color: var(--background-color);
+    background-image: var(--background-IMG);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.box{
+    border: 2px dashed var(--boxDashed-color);
+    background: var(--box-color);
+    padding: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    height: 100px;
+    width: 350px;
+    margin: 1rem;
+    position: relative;
+    /* box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2); */
+    box-shadow: 0 0px 50px 10px rgba(0,0,0,0.2);
+    animation: boxExpand .5s ease-in-out;
+}
+@keyframes boxExpand{
+    0%{
+    }10%{
+    }20%{
+    }30%{
+    }40%{
+    }50%{
+    }60%{
+    }70%{
+    }80%{
+    }90%{
+    }100%{
+    }
+}
+.box:hover{
+    transform: scale(1.1);
+}
+.boxesCont{
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.topMenus{
+    /* margin-top: .5%; */
+    z-index: 100;
+    position: fixed;
+    left:25%;
+    right:25%;
+    background: none;
+    box-shadow: none;
+    
+    margin-top: 1%;
+    border-radius: 50px;
+}.topMenu{opacity: .5;}
+.topMenu:hover{opacity: 1;}
+.topMenus a{
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+}.topMenus a p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}.icon{
+    padding: 0px 10px;
+    width: 47px;
+}.icon3{
+    width: 41px;
+}
+
+.topMenus #home p::after{content: "Home page";}
+
+.txt{
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/* Rosurc */
+.cur {
+    display: none;
+    width: 30px; height: 30px;
+    border: 3px solid #6e6e6e;
+    border-radius: 50%;
+    position: absolute;
+    transition-timing-function: ease;
+    animation: curAnim 1s infinite alternate;
+    pointer-events: none;
+    opacity:.6;
+    z-index: 200;
+    transform: scale(.2);
+    background-color: #3a3a3a;
+    left: -100px;
+}
+.cur::before {
+    content: "";
+    width: 35px; height: 35px;
+    position: fixed;
+    border: 8px solid gray;
+    border-radius: 50%;
+    opacity: .5;
+    top: -5px; left: -5px;
+}
+@keyframes curAnim {from {transform: scale(.7);}}
+@keyframes curAnim2 {
+    0% {transform: scale(1);}
+    50% {transform: scale(.5);}
+    100% {transform: scale(1); opacity: 0;}
+}
+.expand {animation: curAnim2 .5s forwards;}
+/* Rosurc */
+.main{
+    margin-top: 18%;
+    background:linear-gradient(to right, #373a4400,#373a4400, var(--main-background), #373a4400,#373a4400);
+    /* background: linear-gradient(to right,var(--box-0op-color), var(--box-0op-color), var(--box-color), var(--box-0op-color), var(--box-0op-color)); */
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);
+    border-radius: 3px;
+    animation: mainColShine 2s ease;
+
+}@keyframes mainColShine{
+    0%{background-position-x: 500px;
+    }50%{background-position-x: 1000px;
+    }
+}
+
+.main:hover{
+    margin-top: 17%;
+    transition: .5s ease-in-out;
+}
+.copy:after{
+    content: "Copy character";
+    padding-left:5px;
+    /* font-size: 17px; */
+}.download:after{
+    content: "Download image";
+}.txt p::after{
+    content: "Invisible text character and Image.";
+    animation: changeTXT 5s ease-in-out infinite;
+}@keyframes changeTXT{
+    0%{
+    }10%{
+    }20%{
+    }30%{
+    }40%{
+    }50%{content: "Make your avatar or username invisible.";
+    }60%{
+    }70%{
+    }80%{
+    }90%{
+    }100%{content: "Invisible text character and Image.";
+    }
+}img#copyIMG,img#downloadIMG {
+    opacity: .5;
+}
+.box1:hover img#copyIMG{
+    opacity: 1;
+}.box2:hover img#downloadIMG{
+    opacity: 1;
+}.desc::after{
+    color: #5f6279;
+    content: "Copy that invisible character to make you name invisible online and use the invisible image as well to trick others.";
+}
+
+
+@media screen and (max-width: 930px) {
+    .main{background:linear-gradient(to right,#373a4400, var(--main-background), #373a4400);}
+}@media screen and (max-width: 980px) {
+    .topMenus {
+        left:5%;
+        right:5%;
+        box-shadow: none;;
+    }
+}@media screen and (max-width: 600px) {
+    .topMenus #home p::after{content:none;}
+    .topMenus #discord p::after{content: none;}
+    .topMenus #myBot p::after{content: none;}
+    .topMenus #moreStuff p::after{content: none;}
+    /* .topMenus{background: var(--main-background);
+        box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);} */
+}@media screen and (max-width: 500px) {
+    .main{background:none;box-shadow:none;}
+}@media screen and (max-width: 480px) {
+    .main{
+        padding: 1%0%;
+    }.txt p{
+        padding: 1%0%;
+        font-size: 19px;;
+    }
+}@media screen and (max-width: 380px) {
+    .txt p::after{
+        font-size: 15px;
+    }
+}@media screen and (max-width: 360px) {
+    .box{
+        width: 300px;
+    }
+}@media screen and (max-width: 350px) {
+    .txt p::after{
+        font-size: 12px;
+    }.desc::after{
+        font-size: 13px;
+    }
+}@media screen and (min-width: 1010px) {
+    .main{width: 1000px;}
+}
