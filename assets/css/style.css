@@ -201,22 +201,6 @@ img {
     -webkit-user-select: none;
 }
 
-.card1 {
-    animation: appear 1s ease-in-out;
-}
-
-.card2 {
-    animation: appear 2s ease-in-out;
-}
-
-.card3 {
-    animation: appear 3s ease-in-out;
-}
-
-.card4 {
-    animation: appear 4s ease-in-out;
-}
-
 .card {
     position: relative;
     display: inline-block;
@@ -227,6 +211,7 @@ img {
     box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px;
     transition: all .5s ease-in-out 0s;
     background: rgb(52 54 62);
+    animation: appear var(--time) ease-in-out;
 }
 
 .card:hover:not(.comingSoon) {
