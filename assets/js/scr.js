@@ -1,2 +1,3 @@
-document.querySelector('img').onerror = (el) => el.target.style.opacity = 0;
-document.querySelector('.contact').addEventListener('click', () => window.open(atob("bWFpbHRvOjExNjczM2NmLTI4NDYtNDJkNS05MGRmLTg0YzdhMWRlZTkwM0Bhbm9uYWRkeS5tZT9TdWJqZWN0PUNvbnRhY3QlMjBmcm9tJTIwd2Vic2l0ZS4=")));
+window.onload = () => {
+    document.querySelector('img').onerror = el => el.target.style.opacity = 0;
+}
