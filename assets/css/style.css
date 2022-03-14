@@ -1,22 +1,34 @@
-@import url(https://fonts.googleapis.com/css?family=Heebo|Ubuntu:700&display=swap);
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/Heebo-400.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/Ubuntu-700.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
+    --color: #fff;
     --hoverCol: #659cf1;
     --hoverCol2: rgb(227, 234, 243);
     --mainFont: 'Heebo', sans-serif;
     --secFont: 'Ubuntu', sans-serif;
     --header-height: 55px;
-    /* Dark */
-    --background: #26282e;
-    --background-btns: rgb(70 71 79 / 71%);
-    --background-card: rgb(52 54 62);
-    --background-card-head: rgb(55 57 66);
-    --background-header: #26282e00;
-    --shadow-header: 0 0 20px 0 #00000080;
-    --border-bottom-header: 1px solid rgb(114 124 172 / 50%);
-    /* Darker */
+}
+
+body {
     --background: #1c1b22;
-    --background-btns: #36353c;
+    --background-descLink: #1f1e24;
+    --background-btns: linear-gradient(to right, #36353c, rgb(72 70 79 / 71%));
     --background-card: #29282e;
     --background-card-head: #26252b;
     --background-header: #212026;
@@ -26,6 +38,47 @@
     --background-header: #25242b;
     --border-bottom-header: 1px solid #00000000;
     --shadow-header: 0px 0px 50px -12px rgba(0, 0, 0, 0.2);
+    --background-menu-project-box: #1f1e24b8;
+    --background-body: #15141a;
+    color: var(--color);
+}
+
+body.dark {
+    --background: #26282e;
+    --background-btns: linear-gradient(to right, #36353c, rgb(72 70 79 / 71%));
+    --background-card: rgb(52 54 62);
+    --background-card-head: rgb(55 57 66);
+    --background-header: #26282e;
+    --shadow-header: 0 0 20px 0 #00000080;
+    --border-bottom-header: 1px solid #ef524e;
+    --border-bottom-header: 1px solid rgb(114 124 172 / 50%);
+    --background-menu-project-box: #212328;
+    --background-body: #1c1d22;
+}
+
+body.light {
+    --color: #0d0b1c;
+    --hoverCol: #659cf1;
+    --hoverCol2: rgb(28, 21, 12);
+    --background: #fff;
+    --background-btns: #e6e6e6;
+    --background-card: #ebedef;
+    --background-card-head: #ebedef;
+    --background-card-head: #e6e6e6;;
+    --background-header: #ffff;
+    --background-descLink: #babcbf91;
+    --shadow-header: 0 0 20px 0 #00000054;
+    --shadow-header: 0px 0px 50px -12px rgba(0, 0, 0, 0.29);
+    --border-bottom-header: 1px solid rgb(114 124 172 / 50%);
+    --background-menu-project-box: #ebedef;
+    --background-body: #eee;
+}
+
+body.light .card {
+    box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, 0) 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    color: #0d0b1c;
 }
 
 *, :after, :before {
@@ -50,22 +103,16 @@ a:hover:not(.menuLogo):not(.btn) {
 }
 
 body {
-    transition: .5s ease-in-out;
     background-size: cover;
     background-repeat: no-repeat;
-    background: var(--background);
+    background: var(--background-body);
+    overflow: hidden;
 }
 
 .hidden,
 body:not(.expand-menu) .menuStuff .projects .project,
 body.notLoaded :is(.window> :not(.back-logo), .outside) {
     display: none !important;
-}
-
-body {
-    background: var(--background);
-    background: #15141a;
-    overflow: hidden;
 }
 
 .window {
@@ -104,6 +151,10 @@ body {
     font-size: 80%;
     display: grid;
     grid-template-columns: 1fr auto;
+}
+
+body.light .page-info {
+    opacity: 1
 }
 
 .page-info .left .item .value {
@@ -161,7 +212,7 @@ body {
 
 body.frame .outside.next {
     top: 15px;
-    color: #000!important;
+    color: #000 !important;
 }
 
 .outside.next:hover {
@@ -289,6 +340,10 @@ body.frame .outside.next {
     /* -webkit-mask-image: linear-gradient(to bottom, #1c1b22, #1c1b22bc, #1c1b2200); */
 }
 
+body.light .back-logo {
+    filter: none
+}
+
 body.expand-menu header {
     height: 355px;
     position: fixed;
@@ -332,7 +387,7 @@ body.expand-menu .back-logo {
 .menuStuff .projects .project {
     transition: .2s ease;
     animation: smallAn .4s ease;
-    background: #1f1e24b8;
+    background: var(--background-menu-project-box);
     min-width: 160px;
     height: 196px;
     padding: 10px;
@@ -342,7 +397,7 @@ body.expand-menu .back-logo {
 }
 
 .menuStuff .projects .project .top {
-    background: #1f1e24b8;
+    background: var(--background-menu-project-box);
     text-align: center;
     padding: 10px;
     border-radius: 10px;
@@ -372,6 +427,10 @@ body.expand-menu .back-logo {
 
 .menuStuff .projects .project .bottom .desc.smaller {
     color: #9c9bb7;
+}
+
+body.light .menuStuff .projects .project .bottom .desc.smaller {
+    color: #152040;
 }
 
 .menuStuff .projects .project .bottom .desc.smaller::before {
@@ -456,6 +515,10 @@ header {
     transition: .25s ease;
 }
 
+body.light .lnk::after {
+    border: 1px solid #ef524e80;
+}
+
 .lnk-hoverable:hover .lnk::after,
 .lnk:hover::after {
     border: 1px solid #659df1;
@@ -499,6 +562,10 @@ header {
     width: 10px;
     display: inline-block;
     top: -50px;
+}
+
+body.light .menuLinks .menuLink.has-arrow::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' x='0' y='0' viewBox='0 0 128 128' xml:space='preserve'%3E%3Cg%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='m64 92.5 50-50-7.1-7.1-17.1 17.2-25.8 25.8-25.8-25.8-17.1-17.1-7.1 7.1z' fill='%230d0b1c'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
 
 body.expand-menu.projects .menuLinks .menuLink.projects::after {
@@ -575,7 +642,7 @@ main {
 
 .aboutBtns .btn {
     padding: 10px 17px 10px 17px;
-    background: linear-gradient(to right, var(--background-btns), rgb(72 70 79 / 71%));
+    background: var(--background-btns);
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -639,13 +706,13 @@ main {
 }
 
 .card a, .card p {
-    color: #fff;
+    color: var(--color);
     text-align: left;
     margin: 3%3%3%3%;
 }
 
 .card .descLink, .card .projDesc .desc {
-    color: #fff;
+    color: var(--color);
     text-align: left;
     margin: 5%5%5%5%;
     opacity: .6;
@@ -657,7 +724,7 @@ main {
     border-radius: 5px;
     position: absolute;
     z-index: 10;
-    background: #1f1e24;
+    background: var(--background-descLink);
     position: absolute;
     bottom: 15px;
 }
@@ -677,6 +744,11 @@ main {
     transition: .5s ease;
     mask-image: linear-gradient(-73deg, #29282e70, #29282e00);
     -webkit-mask-image: linear-gradient(-73deg, #29282e60, #29282e00);
+}
+
+body.light .card img {
+    mask-image: linear-gradient(-73deg, #ebedef, #ebedef00);
+    -webkit-mask-image: linear-gradient(-73deg, #ebedef, #ebedef00);
 }
 
 .card:hover img {

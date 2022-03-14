@@ -56,7 +56,7 @@ addEventListener('DOMContentLoaded', () => {
     const updated = document.querySelector('.page-info .left .item.updated .value');
     fetch('https://api.github.com/repos/Glitchii/glitchii.github.io')
         .then(res => res.json())
-        .then(res => updated.innerText = new Date(res.updated_at).toGMTString());
+        .then(res => updated.innerText = new Date(res.pushed_at).toGMTString());
 
     for (const achor of document.getElementsByClassName('descLink frame'))
         achor.addEventListener('click', e => {
@@ -66,24 +66,20 @@ addEventListener('DOMContentLoaded', () => {
             if (!win2 || !iframe) return open(e.target.href);
 
             iframe.src = achor.href;
-            iframe.onload = () => {
-                const next = () => {
-                    win.animate([{ left: '-150%' }], { duration: 900, easing: 'ease' })
-                        .onfinish = () => win.classList.add('invisible');
+            // iframe.onload = () => {
+            const next = () => {
+                win.animate([{ left: '-150%' }], { duration: 900, easing: 'ease' })
+                    .onfinish = () => win.classList.add('invisible');
 
-                    win2.classList.remove('hidden');
-                    document.body.classList.add('frame');
-                    document.querySelectorAll('.outside.next').forEach(e => e.remove());
-                }
+                win2.classList.remove('hidden');
+                document.body.classList.add('frame');
+                document.querySelectorAll('.outside.next').forEach(e => e.remove());
+            }
 
-                if (!document.querySelector('.window.active')) next();
-                else {
-                    document.querySelector('.outside.next:not(.close)').click();
-                    setTimeout(next, 500);
-                }
-
-
-            };
+            if (document.querySelector('.window.active'))
+                document.querySelector('.outside.next:not(.close)').click();
+            next();
+            // };
 
 
         });
