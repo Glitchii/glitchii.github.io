@@ -64,7 +64,8 @@ body.light {
     --background-btns: #e6e6e6;
     --background-card: #ebedef;
     --background-card-head: #ebedef;
-    --background-card-head: #e6e6e6;;
+    --background-card-head: #e6e6e6;
+    ;
     --background-header: #ffff;
     --background-descLink: #babcbf91;
     --shadow-header: 0 0 20px 0 #00000054;
@@ -147,10 +148,13 @@ body.notLoaded :is(.window> :not(.back-logo), .outside) {
     width: 90%;
     left: 50%;
     transform: translateX(-50%);
-    opacity: .6;
     font-size: 80%;
     display: grid;
     grid-template-columns: 1fr auto;
+}
+
+.page-info .left {
+    opacity: .6;
 }
 
 body.light .page-info {
@@ -172,6 +176,62 @@ body.light .page-info {
 .page-info .right .discord-logo:hover {
     opacity: 1;
 }
+
+.themes {
+    display: flex;
+    gap: 15px;
+}
+
+.themes .theme {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    background: #25242b;
+    border-radius: 100%;
+}
+
+.themes .theme.light {
+    background: #fff;
+}
+
+.themes .theme.dark {
+    background: #34363e;
+}
+
+body:not(.light):not(.dark) .themes .theme.darker,
+body.dark .themes .theme.dark,
+body.light .themes .theme.light, 
+.themes .theme:is(.active, :hover) {
+	width: 16px;
+	height: 16px;
+	margin: 5px 4.5px 0 4.5px;
+	transition: none;
+}
+body.dark .themes .theme.dark::after,
+body.light .themes .theme.light::after,
+body:not(.light):not(.dark) .themes .theme.darker::after,
+.themes .theme:is(.active, :hover)::after {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 3px solid #4f8bff;
+	border-radius: 100%;
+	top: -7px;
+	left: -6.5px;
+}
+
+/* .themes .theme:hover {
+    border: 4px solid #464451;
+}
+
+.themes .theme.light:hover {
+    border: 4px solid #848181;
+}
+
+.themes .theme.dark:hover {
+    border: 4px solid #585959;
+} */
 
 @keyframes nextAn {
     0% {
@@ -441,6 +501,11 @@ body.light .menuStuff .projects .project .bottom .desc.smaller {
     display: inline-block;
     position: absolute;
     width: 14px;
+}
+
+
+body.light .menuStuff .projects .project .bottom .desc.smaller::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' x='0' y='0' viewBox='0 0 6.3499999 6.3500002' xml:space='preserve'%3E%3Cg%3E%3Cg xmlns='http://www.w3.org/2000/svg' transform='translate(0 -290.65)'%3E%3Cpath d='m2.9119652 291.18173-.00212 4.6452-.8691987-.86765c-.049813-.0512-.1182159-.0801-.1896534-.0801-.2357199.002-.3514672.28786-.1834515.4532l1.3224009 1.32395c.1033859.10363.2712693.10363.3746553 0l1.3223981-1.32395c.25899-.25009-.1265132-.63347-.3751686-.3731l-.8728155.87281.00212-4.65036c.00265-.14915-.1185148-.27099-.2676842-.26949-.1469443.001-.2643479.12257-.2614824.26949z' fill='%23152040'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .menuStuff .projects .project:hover .bottom .desc.smaller::before,

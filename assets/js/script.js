@@ -4,6 +4,9 @@ if (new URL(location).searchParams.get('troy') !== null)
 
 
 addEventListener('DOMContentLoaded', () => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) document.body.classList.add(currentTheme);
+
     document.querySelector('.nojs').remove();
     const header = document.querySelector('header'),
         projects = header.querySelector('.menuLink.projects');
@@ -82,5 +85,19 @@ addEventListener('DOMContentLoaded', () => {
             // };
 
 
+        });
+
+    for (const theme of document.querySelectorAll('.themes .theme[data-theme]'))
+        theme.addEventListener('click', e => {
+            const theme = e.target.dataset.theme;
+            if (theme) {
+                document.body.classList.remove('light', 'dark', 'darker');
+                document.body.classList.add(theme);
+
+                localStorage.removeItem('theme');
+                if (theme !== 'darker')
+                    // Darker theme is the default
+                    localStorage.setItem('theme', theme);
+            }
         });
 });
