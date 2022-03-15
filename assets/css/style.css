@@ -58,7 +58,7 @@ body.dark {
 
 body.light {
     --color: #0d0b1c;
-    --hoverCol: #659cf1;
+    --hoverCol: #2a6bd3;
     --hoverCol2: rgb(28, 21, 12);
     --background: #fff;
     --background-btns: #e6e6e6;
@@ -200,25 +200,26 @@ body.light .page-info {
 
 body:not(.light):not(.dark) .themes .theme.darker,
 body.dark .themes .theme.dark,
-body.light .themes .theme.light, 
+body.light .themes .theme.light,
 .themes .theme:is(.active, :hover) {
-	width: 16px;
-	height: 16px;
-	margin: 5px 4.5px 0 4.5px;
-	transition: none;
+    width: 16px;
+    height: 16px;
+    margin: 5px 4.5px 0 4.5px;
+    transition: none;
 }
+
 body.dark .themes .theme.dark::after,
 body.light .themes .theme.light::after,
 body:not(.light):not(.dark) .themes .theme.darker::after,
 .themes .theme:is(.active, :hover)::after {
-	content: "";
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	border: 3px solid #4f8bff;
-	border-radius: 100%;
-	top: -7px;
-	left: -6.5px;
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #4f8bff;
+    border-radius: 100%;
+    top: -7px;
+    left: -6.5px;
 }
 
 /* .themes .theme:hover {
@@ -270,7 +271,7 @@ body:not(.light):not(.dark) .themes .theme.darker::after,
     height: 100%;
 }
 
-body.frame .outside.next {
+body.otherWindow .outside.next {
     top: 15px;
     color: #000 !important;
 }
@@ -284,6 +285,10 @@ body.frame .outside.next {
 .window:not(.active)~.next:not(.close) {
     opacity: 0 !important;
     pointer-events: none !important;
+}
+
+.window.\:2 {
+    padding: 5%;
 }
 
 @media screen and (min-width: 750px) {
@@ -342,6 +347,7 @@ body.frame .outside.next {
         width: 100%;
         height: 100%;
         border-radius: 0;
+        padding: 20%;
     }
 
     iframe {
@@ -560,10 +566,6 @@ header {
     /* box-shadow: 0px 0px 50px -12px rgba(0, 0, 0, 0.46); */
 }
 
-.contact {
-    cursor: pointer;
-}
-
 .lnk a, a.lnk {
     text-decoration: none;
     position: relative;
@@ -699,7 +701,7 @@ main {
     height: 80px;
     display: flex;
     align-items: center;
-    transition: .5s ease-in-out;
+    transition: .5s ease;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -749,7 +751,7 @@ main {
     box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px;
     transition: .5s ease;
     background: var(--background-card);
-    animation: appear var(--time) ease-in-out;
+    animation: appear var(--time) ease;
 }
 
 .card:hover:not(.comingSoon) {
@@ -763,7 +765,7 @@ main {
     position: relative;
     bottom: 0;
     /* background-color: var(--background-card-head); */
-    transition: 1s ease-in-out;
+    transition: 1s ease;
     border-radius: inherit;
     opacity: .6;
     /* background: var(--background-card); */
@@ -856,8 +858,8 @@ body.light .card img {
     position: absolute;
     margin: 5%2%;
     z-index: 1;
-    transition: 1s ease-in-out;
-    animation: appear2 3s ease-in-out;
+    transition: 1s ease;
+    animation: appear2 3s ease;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -876,7 +878,7 @@ body.light .card img {
 }
 
 main {
-    animation: appear2 2s ease-in-out;
+    animation: appear2 2s ease;
 }
 
 @keyframes nojsAn {
@@ -899,6 +901,7 @@ main {
 
 .nojs {
     opacity: 0;
+    pointer-events: none;
     bottom: 0;
     color: #ffffff9e;
     animation: nojsAn 10s ease;
@@ -912,19 +915,11 @@ main {
     from {
         opacity: 1;
     }
-
-    to {
-        opacity: 0;
-    }
 }
 
 @keyframes appear2 {
     from {
         opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
 
@@ -980,7 +975,7 @@ main {
 }
 
 @media screen and (max-width:500px) {
-    .about, .contact {
+    .menuLink:is(.about, .contact) {
         display: none;
     }
 
@@ -999,4 +994,140 @@ main {
 
 ::selection {
     color: var(--hoverCol);
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 68px;
+    justify-content: space-between;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form .title {
+    width: 100%;
+    display: block;
+    font-size: 39px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 44px;
+    font-family: var(--font3);
+}
+
+form .field:not(.message) {
+    width: calc((100% - 30px)/2);
+}
+
+
+form .field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 65px;
+    padding-bottom: 13px;
+}
+
+form .field label {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 5px;
+}
+
+form :is(input, textarea) {
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    padding: 0 5px;
+    font-size: 18px;
+    background: 0 0;
+    line-height: 1.2;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+
+form .field input {
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form .input-line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+form .input-line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transition: all .4s;
+    background: linear-gradient(90deg, #5a5460, #4f4c62);
+}
+
+form textarea {
+    padding-top: 9px;
+    margin-top: 10px;
+    min-height: 110px;
+    border-radius: 5px;
+    padding-bottom: 13px;
+}
+
+form input[type="submit"] {
+    height: 50px;
+    display: flex;
+    font-size: 16px;
+    padding: 0 20px;
+    cursor: pointer;
+    line-height: 1.2;
+    min-width: 160px;
+    transition: all .5s;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 10px 0 #0000000f;
+    background: linear-gradient(150deg, #3f3b44, #3c3748);
+}
+
+body.light form input[type="submit"] {
+    background: #D9AEAE82;
+}
+
+body.light form .input-line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transition: all .4s;
+    background: linear-gradient(90deg, #5a5460, #4f4c62);
+    background: rgba(183, 178, 178, 0.54);
+}
+
+form input[type="submit"]:hover {
+    filter: contrast(.8);
+    box-shadow: 0 10px 10px 0 #1f1d2275;
+}
+
+body.light form input[type="submit"]:hover {
+    box-shadow: 0 10px 10px 0 #1f1d2217;
 }

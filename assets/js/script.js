@@ -45,6 +45,8 @@ addEventListener('DOMContentLoaded', () => {
     });
 
     const win = document.querySelector('.window');
+    const win2 = document.querySelector('.window.\\:2');
+
     for (const e of document.querySelectorAll('.outside'))
         e.addEventListener('click', e => {
             win.classList.toggle('active');
@@ -54,6 +56,17 @@ addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.outside.next:not(.close)')?.classList.remove('invisible');
             else if (e.target.closest('.next'))
                 document.querySelector('.outside.next.close')?.classList.remove('invisible');
+
+            if (document.body.classList.contains('otherWindow')) {
+                document.body.classList.remove('otherWindow');
+                win.classList.remove('invisible');
+
+                win2.animate([{ left: '150%' }], { duration: 900, easing: 'ease' })
+                    .onfinish = () => win2.classList.add('hidden');
+
+                win.animate([{ left: '-150%' }, { left: '50%' }], { duration: 900, easing: 'ease' })
+                // .onfinish = () => setTimeout(() => win.classList.add('active'), 1000);
+            }
         });
 
     const updated = document.querySelector('.page-info .left .item.updated .value');
@@ -61,31 +74,29 @@ addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(res => updated.innerText = new Date(res.pushed_at).toGMTString());
 
-    for (const achor of document.getElementsByClassName('descLink frame'))
-        achor.addEventListener('click', e => {
-            e.preventDefault();
-            const win2 = document.querySelector('.window.\\:2');
-            const iframe = win2?.querySelector('iframe');
-            if (!win2 || !iframe) return open(e.target.href);
+    document.querySelector('.menuLink.contact').addEventListener('click', e => {
+        e.preventDefault();
+        if (!win2) return open(e.target.href);
 
-            iframe.src = achor.href;
-            // iframe.onload = () => {
-            const next = () => {
-                win.animate([{ left: '-150%' }], { duration: 900, easing: 'ease' })
-                    .onfinish = () => win.classList.add('invisible');
+        const next = () => {
+            win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' })
+                .onfinish = () => {
+                    win.classList.add('invisible');
+                    setTimeout(() => document.querySelector('form .field.message textarea')?.focus(), 1000);
+                }
 
-                win2.classList.remove('hidden');
-                document.body.classList.add('frame');
-                document.querySelectorAll('.outside.next').forEach(e => e.remove());
-            }
-
-            if (document.querySelector('.window.active'))
-                document.querySelector('.outside.next:not(.close)').click();
-            next();
-            // };
+            win2.classList.remove('hidden');
+            document.body.classList.add('otherWindow');
+            // document.querySelectorAll('.outside.next').forEach(e => e.remove());
+        }
 
 
-        });
+        if (!document.querySelector('.window.active')) next()
+        else {
+            document.querySelector('.outside.next:not(.close)').click();
+            setTimeout(() => next(), 500)
+        }
+    });
 
     for (const theme of document.querySelectorAll('.themes .theme[data-theme]'))
         theme.addEventListener('click', e => {
