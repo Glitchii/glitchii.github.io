@@ -45,7 +45,7 @@ addEventListener('DOMContentLoaded', () => {
     });
 
     const win = document.querySelector('.window');
-    const win2 = document.querySelector('.window.\\:2');
+    const win2 = document.querySelector('.window:nth-of-type(2)');
 
     for (const e of document.querySelectorAll('.outside.next'))
         e.addEventListener('click', e => {
@@ -65,7 +65,6 @@ addEventListener('DOMContentLoaded', () => {
                     .onfinish = () => win2.classList.add('hidden');
 
                 win.animate([{ left: '-150%' }, { left: '50%' }], { duration: 900, easing: 'ease' })
-                // .onfinish = () => setTimeout(() => win.classList.add('active'), 1000);
             }
         });
 
