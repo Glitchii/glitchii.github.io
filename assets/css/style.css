@@ -304,10 +304,9 @@ body.otherWindow .outside.next {
     }
 
     .window:not(.active) {
-        /* overflow: hidden; */
+        overflow: hidden;
         border-radius: var(--border-radius);
         box-shadow: #0003 0px 7px 29px 0px;
-        /* box-shadow: #00000048 0px 7px 29px 0px; */
         top: var(--top);
         width: var(--width);
         height: var(--height);
