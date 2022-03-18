@@ -289,7 +289,7 @@ body.otherWindow .outside.next {
     pointer-events: none !important;
 }
 
-.window.\:2 {
+.window:nth-of-type(2) {
     padding: 5%;
 }
 
@@ -339,7 +339,7 @@ body.otherWindow .outside.next {
         }
     }
 
-    .window.\:2 {
+    .window:nth-of-type(2) {
         animation: otherWinAn 1.5s ease;
         top: 50%;
         width: 100%;
