@@ -47,7 +47,7 @@ addEventListener('DOMContentLoaded', () => {
     const win = document.querySelector('.window');
     const win2 = document.querySelector('.window.\\:2');
 
-    for (const e of document.querySelectorAll('.outside'))
+    for (const e of document.querySelectorAll('.outside.next'))
         e.addEventListener('click', e => {
             win.classList.toggle('active');
             document.querySelector('.next:not(.invisible)').classList.add('invisible');
@@ -78,12 +78,14 @@ addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (!win2) return open(e.target.href);
 
-        const next = () => {
-            win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' })
-                .onfinish = () => {
-                    win.classList.add('invisible');
-                    setTimeout(() => document.querySelector('form .field.message textarea')?.focus(), 1000);
-                }
+        const small = matchMedia('(max-width: 500px)').matches;
+        const next = noAnimation => {
+            const next = () => {
+                win.classList.add('invisible');
+                document.querySelector('form .field.message textarea')?.focus();
+            };
+            if (noAnimation) next();
+            else win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' }).onfinish = next;
 
             win2.classList.remove('hidden');
             document.body.classList.add('otherWindow');
@@ -91,10 +93,10 @@ addEventListener('DOMContentLoaded', () => {
         }
 
 
-        if (!document.querySelector('.window.active')) next()
+        if (!document.querySelector('.window.active')) next(small);
         else {
             document.querySelector('.outside.next:not(.close)').click();
-            setTimeout(() => next(), 500)
+            small ? next(true) : setTimeout(next, 500)
         }
     });
 
@@ -111,4 +113,23 @@ addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('theme', theme);
             }
         });
+
+    document.querySelector('.hbm').addEventListener('click', e => document.body.classList.toggle('menu'));
+    document.querySelector('form').addEventListener('submit', e => {
+        e.preventDefault();
+        let name = document.querySelector('form .field.name input').value,
+            email = document.querySelector('form .field.email input').value,
+            mine = 'glitchii@tempfile.site',
+            body = `${document.querySelector('form .field.message textarea').value}\n\n`,
+            subject = `Message from ${name || email || location.href}`;
+
+        if (!name && email) body += email;
+        else if (name) {
+            body += (name || email)
+            email && (body += ` (${email})`);
+        }
+        open(`mailto:${mine}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + `\nSent from ${location.href}`)}`);
+
+    });
+
 });
