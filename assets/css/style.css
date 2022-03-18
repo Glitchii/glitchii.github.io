@@ -253,7 +253,7 @@ body:not(.light):not(.dark) .themes .theme.darker::after,
     right: 25px;
     width: 17px;
     z-index: 15;
-    opacity: 0.2;
+    opacity: .5;
     height: auto;
     display: none;
 }
