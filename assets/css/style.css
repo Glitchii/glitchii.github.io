@@ -633,6 +633,10 @@ body.expand-menu.projects .menuLinks .menuLink.projects::after {
     background: white;
 }
 
+body.light .hbm div {
+    background: #1c150c;
+}
+
 .hbm div+div {
     margin-top: 4px;
 }
