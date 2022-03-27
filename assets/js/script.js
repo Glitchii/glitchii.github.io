@@ -13,21 +13,6 @@ addEventListener('DOMContentLoaded', () => {
         projects.click();
     });
 
-    const defaultMenuProject = document.querySelector('.menuStuff .projects .project');
-    if (defaultMenuProject)
-        for (const card of document.querySelectorAll('.cards .card:not(.hidden)')) {
-            const newCard = defaultMenuProject.cloneNode(true);
-            newCard.querySelector('.desc.name').innerText = card.querySelector('.title').innerText;
-            newCard.querySelector('.desc.small').innerText = card.querySelector('.title').dataset.brief;
-            newCard.querySelector('.top img').src = card.querySelector('img').src;
-            newCard.querySelector('.desc.smaller').href = card.querySelector('.descLink').href;
-            if (card.querySelector('img').classList.contains('unequal'))
-                newCard.querySelector('.top img').classList.add('unequal');
-
-            newCard.classList.remove('hidden');
-            defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);
-        }
-
     const win = document.querySelector('.window');
     const win2 = document.querySelector('.window:nth-of-type(2)');
 

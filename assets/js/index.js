@@ -1,4 +1,39 @@
-// This is a global file that has content for all pages eg. header event listners etc.
+// This is a global file. It has content for all pages eg. header event listners, global variables etc.
+
+// Array of projects for the header, so not to repeat the same code.
+projectsObject = [
+    {
+        name: 'Troy',
+        brief: 'Discord bot',
+        description: 'A new discord bot built for fun, music, moderation, and games.\nIt has a customisable prefix, allows custom commands, custom welcome and goodbye message etc.',
+        image: '/assets/imgs/Troy.png',
+        link: 'https://troybot.xyz/',
+    },
+    {
+        name: 'TempFile',
+        brief: 'Stores files temprarily',
+        description: 'A website that temporarily stores files that get deleted at a certain (chosen) time or date.',
+        image: '/assets/imgs/tempfile.png',
+        link: 'https://tempfile.site/',
+    },
+    {
+        name: 'Cli tools',
+        brief: 'Commandline tools',
+        description: 'Small cli tools I made because I find myself to need them quite a lot.',
+        image: '/assets/imgs/bash.svg',
+        link: 'https://github.com/Glitchii/command-line-tools',
+    },
+    {
+        name: 'EmbedBuilder',
+        brief: 'Discord Embed Builder',
+        description: '',
+        image: 'https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png',
+        link: 'https://glitchii.github.io/embedbuilder/',
+        unequal: true,
+    },
+
+]
+
 addEventListener('DOMContentLoaded', () => {
     document.querySelector('.nojs')?.remove();
     setTimeout(() => document.body.classList.remove('notLoaded'), 1000);
@@ -17,4 +52,18 @@ addEventListener('DOMContentLoaded', () => {
         if (!(e.target.closest('header') || e.target.closest('.btn.aboutProjs') || e.target.closest('.outside')) && document.body.classList.contains('expand-menu'))
             projects.click();
     });
+
+    const defaultMenuProject = document.querySelector('.menuStuff .projects .project');
+    if (defaultMenuProject)
+        for (const obj of projectsObject) {
+            const newCard = defaultMenuProject.cloneNode(true);
+            newCard.querySelector('.desc.name').innerText = obj.name;
+            newCard.querySelector('.desc.small').innerText = obj.brief;
+            newCard.querySelector('.top img').src = obj.image;
+            newCard.querySelector('.desc.smaller').href = obj.link;
+            obj.unequal && newCard.querySelector('.top img').classList.add('unequal');
+
+            newCard.classList.remove('hidden');
+            defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);
+        }
 });
