@@ -7,42 +7,26 @@ addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) document.body.classList.add(currentTheme);
 
-    document.querySelector('.nojs').remove();
-    const header = document.querySelector('header'),
-        projects = header.querySelector('.menuLink.projects');
-
-    setTimeout(() => document.body.classList.remove('notLoaded'), 1000);
-    projects.addEventListener('click', e => {
-        const body = document.body;
-        body.classList.toggle('expand-menu');
-        body.classList.toggle('projects');
-    });
-
     document.querySelector('img').onerror = el => el.target.style.opacity = 0;
     document.querySelector('.btn.aboutProjs').addEventListener('click', e => {
         e.preventDefault();
         projects.click();
     });
 
-
     const defaultMenuProject = document.querySelector('.menuStuff .projects .project');
-    for (const card of document.querySelectorAll('.cards .card:not(.hidden)')) {
-        const newCard = defaultMenuProject.cloneNode(true);
-        newCard.querySelector('.desc.name').innerText = card.querySelector('.title').innerText;
-        newCard.querySelector('.desc.small').innerText = card.querySelector('.title').dataset.brief;
-        newCard.querySelector('.top img').src = card.querySelector('img').src;
-        newCard.querySelector('.desc.smaller').href = card.querySelector('.descLink').href;
-        if (card.querySelector('img').classList.contains('unequal'))
-            newCard.querySelector('.top img').classList.add('unequal');
+    if (defaultMenuProject)
+        for (const card of document.querySelectorAll('.cards .card:not(.hidden)')) {
+            const newCard = defaultMenuProject.cloneNode(true);
+            newCard.querySelector('.desc.name').innerText = card.querySelector('.title').innerText;
+            newCard.querySelector('.desc.small').innerText = card.querySelector('.title').dataset.brief;
+            newCard.querySelector('.top img').src = card.querySelector('img').src;
+            newCard.querySelector('.desc.smaller').href = card.querySelector('.descLink').href;
+            if (card.querySelector('img').classList.contains('unequal'))
+                newCard.querySelector('.top img').classList.add('unequal');
 
-        newCard.classList.remove('hidden');
-        defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);
-    }
-
-    document.body.addEventListener('click', e => {
-        if (!(e.target.closest('header') || e.target.closest('.btn.aboutProjs') || e.target.closest('.outside')) && document.body.classList.contains('expand-menu'))
-            projects.click();
-    });
+            newCard.classList.remove('hidden');
+            defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);
+        }
 
     const win = document.querySelector('.window');
     const win2 = document.querySelector('.window:nth-of-type(2)');
@@ -81,7 +65,7 @@ addEventListener('DOMContentLoaded', () => {
         const next = noAnimation => {
             const next = () => {
                 win.classList.add('invisible');
-                document.querySelector('form .field.message textarea')?.focus();
+                document.querySelector('form .field.message textarea').focus();
             };
             if (noAnimation) next();
             else win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' }).onfinish = next;
@@ -90,7 +74,6 @@ addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('otherWindow');
             // document.querySelectorAll('.outside.next').forEach(e => e.remove());
         }
-
 
         if (!document.querySelector('.window.active')) next(small);
         else {
@@ -112,23 +95,4 @@ addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('theme', theme);
             }
         });
-
-    document.querySelector('.hbm').addEventListener('click', e => document.body.classList.toggle('menu'));
-    document.querySelector('form').addEventListener('submit', e => {
-        e.preventDefault();
-        let name = document.querySelector('form .field.name input').value,
-            email = document.querySelector('form .field.email input').value,
-            mine = 'glitchii@tempfile.site',
-            body = `${document.querySelector('form .field.message textarea').value}\n\n`,
-            subject = `Message from ${name || email || location.href}`;
-
-        if (!name && email) body += email;
-        else if (name) {
-            body += (name || email)
-            email && (body += ` (${email})`);
-        }
-        open(`mailto:${mine}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + `\nSent from ${location.href}`)}`);
-
-    });
-
 });

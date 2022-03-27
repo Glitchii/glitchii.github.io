@@ -1,0 +1,172 @@
+@import url(./index.css);
+
+body {
+    --background-contact-line: #5b5a5ea3;
+    background: var(--background);
+}
+
+@media screen and (max-width: 500px) {
+    label[data-after]::after {
+        content: none;
+    }
+
+    form .field:not(.long) {
+        width: calc((100% - 20px)/2);
+    }
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 68px;
+    justify-content: space-between;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body.seperate form {
+    position: absolute;
+    padding: 5%;
+}
+
+form .title {
+    width: 100%;
+    font-size: 39px;
+    font-size: clamp(1.7rem, 10vw, 2.45rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 80px;
+    font-family: var(--secFont);
+}
+
+form .field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 65px;
+    padding-bottom: 13px;
+}
+
+form .notIput {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+form .field label {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 5px;
+}
+
+form .reopen {
+    color: #696582;
+    opacity: .8;
+    margin-top: 30px;
+    font-size: 86%;
+}
+
+form .reopen:hover {
+    opacity: 1;
+    color: #cfcbec;
+}
+
+[data-after]::after {
+    content: " "attr(data-after);
+}
+
+@media screen and (min-width: 1115px) {
+    form .field label[for="email"][data-after]::after {
+        content: " (optional but required if you want a reply)";
+    }
+}
+
+form .field:not(.long) {
+    width: calc((100% - 30px)/2);
+}
+
+form .field.message {
+    margin-bottom: 78px;
+    padding-bottom: 0;
+    max-width: inherit;
+
+}
+
+form :is(input, textarea) {
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    padding: 0 5px;
+    font-size: 18px;
+    background: 0 0;
+    line-height: 1.2;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+
+form .field input {
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form .field .input-line {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background: var(--background-contact-line);
+}
+
+form .field:not(.long) .input-line {
+    bottom: -2px;
+    left: 0;
+}
+
+form textarea {
+    padding-top: 9px;
+    margin-top: 10px;
+    min-height: 110px;
+    border-radius: 5px;
+    padding-bottom: 13px;
+}
+
+form .submit button {
+    height: 50px;
+    display: flex;
+    font-size: 16px;
+    padding: 0 20px;
+    cursor: pointer;
+    line-height: 1.2;
+    min-width: 160px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 10px 0 #0000000f;
+    background: linear-gradient(150deg, #3f3b44, #3c3748);
+    gap: 11px;
+    border: none;
+}
+
+form .submit button svg {
+    width: 20px;
+    height: auto;
+}
+
+@media screen and (max-width: 365px) {
+    form .field:not(.long) {
+        width: calc((100% - 20px)/2);
+    }
+}
+
+@media only screen and (min-width: 1060px) {
+    body.seperate form {
+        padding: 0 20%;
+    }
+}

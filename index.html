@@ -4,14 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glitchii</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="./assets/imgs/titleIMG.png" type="image/x-icon">
-    <script src="./assets/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/titleIMG.png">
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/contact.js"></script>
+    <script src="/assets/js/script.js"></script>
 </head>
 
-<body class="notLoaded">
+<body class="home notLoaded">
     <div class="windows">
-        <div class="window active">
+        <section class="window active">
             <img class="back-logo" src="/assets/imgs/titleIMG.png" />
             <header>
                 <div class="menuCont">
@@ -24,7 +27,7 @@
                         </div>
                         <a class="menuLink has-arrow projects pointer">Projects</a>
                         <a class="menuLink about" href="#about">About me</a>
-                        <a class="menuLink contact" target="_blank" href="https://github.com/Glitchii/">Contact</a>
+                        <a class="menuLink contact" target="_blank" href="/contact">Contact</a>
                     </div>
                 </div>
                 <div class="menuStuff">
@@ -36,7 +39,7 @@
                             <div class="bottom">
                             <p class="desc name"></p>
                             <p class="desc small desc"></p>
-                            <a class="desc small smaller go lnk" href="" target="_blank">Visit</a>
+                            <a class="desc small smaller pointer go lnk" target="_blank">Visit</a>
                             </div>
                         </div>
                     </div>
@@ -108,9 +111,9 @@
                     </div>
                 </div>
             </section>
-        </div>
-        <div class="window hidden">
-            <form class="contact" action="mailto:hello@tempfile.site">
+        </section>
+        <section class="window hidden">
+            <form class="contact" action="mailto:mail@tempfile.site">
                 <div class="title">Contact me</div>
                 <div class="field name">
                     <label for="name" data-after="(optional)">Your Name</label>
@@ -122,12 +125,12 @@
                     <input type="email" id="email" name="email" placeholder="example@gmail.com">
                     <div class="input-line"></div>
                 </div>
-                <div class="field message">
+                <div class="field message long">
                     <label for="message">Message</label>
                     <textarea name="body" placeholder="Your message here..." id="message" required></textarea>
                     <div class="input-line"></div>
                 </div>
-                <div class="submit">
+                <div class="field submit notIput long">
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512.308 512.308" xml:space="preserve" fill="currentColor">
                             <g>
@@ -138,8 +141,10 @@
                         <span>Send</span>
                     </button>
                 </div>
+                <a  title="Open contact page in its own tab. For a shortcut, next time middle-click the contact button in the header"
+                    class="field reopen notIput long" href="contact" target="_blank">Click to open contact page in new tab</a>
             </form>
-        </div>
+        </section>
     </div>
     <div class="outside next pointer">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
