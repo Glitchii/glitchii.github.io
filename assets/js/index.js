@@ -26,10 +26,17 @@ projectsObject = [
     {
         name: 'EmbedBuilder',
         brief: 'Discord Embed Builder',
-        description: '',
+        description: 'Shows how a discord embed would look like from JSON input. The JSON data can then be used for my bot or any other that has embed command and uses the JSON format',
         image: 'https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png',
         link: 'https://glitchii.github.io/embedbuilder/',
         unequal: true,
+    },
+    {
+        name: 'Rickroll-terminal',
+        brief: 'rickroll in name & host',
+        description: 'Changes name and host in the terminal to a rickroll after a command.',
+        image: '/assets/imgs/bash.svg',
+        link: 'https://github.com/Glitchii/rickroll-terminal',
     },
 
 ]
@@ -62,6 +69,7 @@ addEventListener('DOMContentLoaded', () => {
             newCard.querySelector('.top img').src = obj.image;
             newCard.querySelector('.desc.smaller').href = obj.link;
             obj.unequal && newCard.querySelector('.top img').classList.add('unequal');
+            obj.description && newCard.setAttribute('title', obj.description);
 
             newCard.classList.remove('hidden');
             defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);

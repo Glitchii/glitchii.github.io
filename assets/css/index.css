@@ -18,6 +18,9 @@
 
 :root {
     --color: #fff;
+    --link-color: rgb(128, 124, 147);
+    --link-color: rgb(196, 190, 225);
+    --link-bottom-color: rgb(114 124 172 / 50%);
     --background: #1c1b22;
     --background-scroll: #2f2f32;
     --selectionCol: #6794ff;
@@ -126,7 +129,6 @@ header .menuCont, main, section .cards, .menuStuff {
     margin: auto;
     padding-left: 12%;
     padding-right: 12%;
-    transition: .25s ease;
 }
 
 .menuStuff {
@@ -182,6 +184,7 @@ header .menuCont, main, section .cards, .menuStuff {
 
 .menuStuff .projects .project .bottom .desc.name {
     margin-bottom: 5px;
+    text-transform: capitalize;
 }
 
 .menuStuff .projects .project .bottom .desc.small {
@@ -331,8 +334,8 @@ body:not(.menu) .hbm {
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 1px;
-    border: 1px solid rgb(114 124 172 / 50%);
+    bottom: 0;
+    border: 1px solid var(--link-bottom-color, rgb(114 124 172 / 50%));
     border-width: 0 0 1px;
     transition: .25s ease;
 }
