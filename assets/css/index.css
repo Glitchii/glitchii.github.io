@@ -230,7 +230,7 @@ header .menuCont, main, section .cards, .menuStuff {
     font-size: 30px;
 }
 
-.menuLinks {
+.menuLinks, .menuLinks ul {
     display: flex;
     align-items: flex-end;
     font-weight: 500;
@@ -294,6 +294,11 @@ body:not(.menu) .hbm {
     margin-top: 4px;
 }
 
+header nav li {
+    list-style: none;
+    display: inline-block;
+}
+
 .hbm, .menuLinks .menuLink:not(:last-child) {
     position: relative;
     margin-right: 30px;
@@ -345,9 +350,6 @@ body:not(.menu) .hbm {
         padding: 0 20px;
     }
 }
-
-
-
 
 
 body.menu .menuLogo {

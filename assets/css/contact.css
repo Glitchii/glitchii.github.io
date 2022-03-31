@@ -75,7 +75,7 @@ form .reopen:hover {
 }
 
 [data-after]::after {
-    content: " "attr(data-after);
+    content: " " attr(data-after);
 }
 
 @media screen and (min-width: 1115px) {

@@ -36,7 +36,7 @@ main>h1 {
     gap: 3%;
 }
 
-.posts>article {
+.posts>.post {
     --border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -47,9 +47,9 @@ main>h1 {
     /* box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px; */
 }
 
-.posts>article:first-child {
+.posts>.post:first-child {
     /* grid-column: 1/4; */
-    background: #25242b70;
+    background: #25242b;
     grid-area: 1/4/1/1;
     flex-direction: row;
     justify-self: start;
@@ -57,28 +57,28 @@ main>h1 {
     margin-bottom: 30px;
 }
 
-
-.posts>article:hover {
+.posts>.post:hover {
     background: #25242b;
     /* box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px; */
 }
 
-.posts>article:hover {
+.posts>.post:hover {
     transform: translateY(-5px);
 }
 
-.posts>article>section {
+.posts>.post>.post-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
 }
 
-.posts>article>section+section {
+.posts>.post>.post-item+.post-item {
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-.posts>article>section:first-child>img {
+.posts>.post>.post-item:first-child>img {
     border-radius: var(--border-radius);
     box-shadow: rgba(0, 0, 0, 0.31) 0px 10px 20px, rgba(0, 0, 0, 0) 0px 6px 6px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 48px 100px 0px;
@@ -86,28 +86,74 @@ main>h1 {
     height: auto;
 }
 
-.posts>article:first-child>section:first-child>img {
+.posts>.post:first-child>.post-item:first-child>img {
     height: 300px;
+    object-fit: cover;
 }
 
-.posts>article>section:last-child>* {
+.posts>.post>.post-item:last-child>* {
     margin: 3px 0;
 }
 
-.posts>article>section>time {
+.posts>.post>.post-item>time {
     opacity: .5;
     font-size: 80%;
 }
 
-.posts>article>section>h2 {
+.posts>.post>.post-item>h2 {
     text-transform: capitalize;
     font-family: var(--secFont);
 }
 
-.posts>article:first-child>section>h2 {
+.posts>.post:first-child>.post-item>h2 {
     font-size: 2.5rem;
 }
 
-.posts>article>section>p {
+.posts>.post>.post-item>p {
     opacity: .8;
+}
+
+@media screen and (max-width: 1060px) {
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1470px) {
+    .posts>.post:first-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+/* @media screen and (max-width: 950px) { */
+/* @media screen and (max-width: 775px) { */
+@media screen and (max-width: 760px) {
+    .posts {
+        gap: 20px;
+    }
+
+    .posts .post:nth-child(even) {
+        background: #25242b;
+    }
+
+    .posts>.post:first-child {
+        grid-area: auto;
+        flex-direction: column;
+    }
+
+    .posts>.post:first-child>.post-item>h2 {
+        font-size: revert;
+    }
+
+    .posts>.post:first-child>.post-item>img {
+        width: 100%;
+        height: auto;
+    }
+
+    .posts>.post:first-child {
+        background: none;
+        margin-bottom: 0;
+    }
 }
