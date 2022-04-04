@@ -24,9 +24,9 @@ a.color {
 main>h1 {
     font-size: 2.5rem;
     text-transform: capitalize;
-    margin: calc(70px + var(--header-height)) auto 50px auto;
     font-weight: 700;
     font-family: var(--secFont);
+    margin: calc(70px + var(--header-height)) auto 50px auto;
 }
 
 .posts {
@@ -47,7 +47,7 @@ main>h1 {
     /* box-shadow: rgba(0, 0, 0, .05) 0 14px 10px, rgba(0, 0, 0, .22) 0 10px 10px; */
 }
 
-.posts>.post:first-child {
+.posts>.post.large {
     /* grid-column: 1/4; */
     background: #25242b;
     grid-area: 1/4/1/1;
@@ -86,7 +86,7 @@ main>h1 {
     height: auto;
 }
 
-.posts>.post:first-child>.post-item:first-child>img {
+.posts>.post.large>.post-item:first-child>img {
     height: 300px;
     object-fit: cover;
 }
@@ -105,7 +105,7 @@ main>h1 {
     font-family: var(--secFont);
 }
 
-.posts>.post:first-child>.post-item>h2 {
+.posts>.post.large>.post-item>h2 {
     font-size: 2.5rem;
 }
 
@@ -121,7 +121,7 @@ main>h1 {
 }
 
 @media screen and (max-width: 1470px) {
-    .posts>.post:first-child {
+    .posts>.post.large {
         grid-column-start: 1;
         grid-column-end: 3;
     }
@@ -138,21 +138,21 @@ main>h1 {
         background: #25242b;
     }
 
-    .posts>.post:first-child {
+    .posts>.post.large {
         grid-area: auto;
         flex-direction: column;
     }
 
-    .posts>.post:first-child>.post-item>h2 {
+    .posts>.post.large>.post-item>h2 {
         font-size: revert;
     }
 
-    .posts>.post:first-child>.post-item>img {
+    .posts>.post.large>.post-item>img {
         width: 100%;
         height: auto;
     }
 
-    .posts>.post:first-child {
+    .posts>.post.large {
         background: none;
         margin-bottom: 0;
     }

@@ -1,0 +1,16 @@
+@import url(./blog.css);
+
+
+
+main>h1 {
+    margin: calc(70px + var(--header-height)) auto auto auto;
+}
+
+main>h3 {
+    margin-top: 20px;
+    margin-bottom: 90px;
+}
+
+.posts > .post > .post-item + .post-item {
+	margin: 20px auto;
+}
