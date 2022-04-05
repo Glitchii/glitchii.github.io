@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitchii - Sitereport</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitereport.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/titleIMG.png">
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/sitereport.js"></script>
+</head>
+<body>
+    <header>
+        <div class="menuCont">
+            <a class="menuLogo" href="./">Glitchii</a>
+            <nav class="menuLinks">
+                <ul>
+                    <li class="hbm pointer hidden">
+                        <div class="first"></div>
+                        <div class="second"></div>
+                        <div class="last"></div>
+                    </li>
+                    <li class="menuLink has-arrow projects pointer"><a>Projects</a></li>
+                    <li class="menuLink contact"><a href="/contact">Contact</a></li>
+                    <li class="menuLink about"><a href="/">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="menuStuff">
+            <div class="projects">
+                <div class="project hidden">
+                    <div class="top">
+                        <img src="/assets/imgs/empty.png" alt draggable="false" />
+                    </div>
+                    <div class="bottom">
+                    <p class="desc name"></p>
+                    <p class="desc small desc"></p>
+                    <a href="" class="desc small smaller pointer go lnk" target="_blank">Visit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Site Report</h1>
+        <section class="intro">
+            <h2>Introduction</h2>
+            <p>
+                Unlike probably most of my classmates, I've had prior experience (about 2 years) in web development, therefore,
+                I have a good grasp of the basics.
+                <!-- Because of this headstart, I did not get to learn much during this module,
+                but have I plessure helping others. -->
+                <!-- For this assigment, we were assigned to create a website that consists of a
+                few pages which are: the home page (index), a contact page, blog, portfolio, and sitereport. -->
+            </p>
+
+            <h3>Files & file structure</h3>
+
+            <p>
+                There are 6 HTML files in this assignment project. All HTML files are in the root directory of the project.
+                I made seperate folders for other files, such as js directory for JavaScript files, CSS for CSS files, imgs for images etc.
+                All the above folders are in the assets directory.
+                The index.html file is homepage. Most pages are linked in the header including the contact page and home page &
+                some pages won't be displayed based on the active page. Since this is actually my personal website, I decided
+                not to include all pages eg. sitereports or blog in the the menu since they will be useless to most people coming
+                to view my website.
+                <br>
+                <br>
+                While every HTML file has its own CSS and (if used) JS files, I also have global files such as index.css and index.js.
+                These files content required and used for all pages. index.css is imported in all CSS files with CSS's `@import` rule.
+                You can find this line on the first line of all CSS files except the index.css and 404.css. index.js is imported through all HTML files.
+                index.css has styles for content like the header which is on all pages and index.js has things like event listeners (etc) for the header and other global elements.
+            </p>
+        </section>
+        
+        <section class="pages">
+            <h2>Pages</h2>
+            <details class="page" data-path="/blog">
+                <summary>Blog page <a href target="_blank"></a></summary>
+                
+                <div class="date">
+                    <time datetime="2022-03-31">March 31, 2022</time>
+                    <span>— blog page is created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/642e2973b3af8b8d417811601c0544be56925d00">642e2973b3af8b8d417811601c0544be56925d00</a>.
+                    </span>
+                </div>
+
+                <p>
+                    The blog page is a page where I display my school projects. I chose to use this page only for my school projects,
+                    as I had already chosen to display all my presonal projects on the homepage, see the part for the homepage for the reason why.
+                    My personal projects can also be found in the menu.
+                </p>
+                
+                <h3>Design choices</h3>
+                
+                <details class="preview">
+                    <summary>View blog page screenshot</summary>
+                    <img src="/assets/imgs/reports/blog.png" alt="Blog page image">
+                </details>
+                
+                <p>
+                    Before designing the blog page (or any page infact), I had to make sure that I had a clear idea of what I wanted to achieve.
+                    First step was to note down what I needed on the page, and the kind of design I wanted.
+                    Sometimes I already have a design idea in my head already, when I don't, I normally looked design inspiration from a search
+                    engine or images on websites like <a href="https://dribbble.com" class="lnk">Dribbble</a> or <a href="https://www.behance.net" class="lnk">Behance</a>.
+                    I got inspiration for the blob page from <a class="lnk" target="_blank" href="https://cdn.dribbble.com/users/33073/screenshots/15238065/media/5df5a84f3ed908ad7bad36fa645e3d4a.png">this image</a>
+                    by Dwinawan on <a class="lnk" target="_blank" href="https://dribbble.com">Dribbble.</a>
+                </p>
+            </details>
+            <details class="page" data-path>
+                <summary>Home page <a href target="_blank"></a></summary>
+            </details>
+            <details class="page" data-path="/portofolio">
+                <summary>Portfolio page <a href target="_blank"></a></summary>
+            </details>
+            <details class="page" data-path="/contact">
+                <summary>Contact page <a href target="_blank"></a></summary>
+            </details>
+        </section>
+    </main>
+</body>
+</html>

@@ -3,14 +3,40 @@
 
 
 main>h1 {
-    margin: calc(70px + var(--header-height)) auto auto auto;
+    margin: calc(90px + var(--header-height)) auto auto auto;
 }
 
-main>h3 {
+main>p {
     margin-top: 20px;
-    margin-bottom: 90px;
+    margin-bottom: 100px;
 }
 
-.posts > .post > .post-item + .post-item {
-	margin: 20px auto;
+.posts>.post>.post-item+.post-item {
+    margin: 20px 2%;
+    margin-top: -60px;
+    z-index: 1;
+}
+
+.posts>.post>.post-item:first-child>img {
+    mask-image: linear-gradient(to bottom, #00000091, #000000c2, #00000010, #00000000);
+    -webkit-mask-image: linear-gradient(to bottom, #00000091, #000000c2, #00000010, #00000000);
+}
+
+.posts>.post {
+    background: #201f26;
+}
+
+@media screen and (max-width: 500px) {
+    .posts>.post {
+        padding: .5rem;
+    }
+
+    main>h1 {
+        margin: calc(70px + var(--header-height)) auto auto auto;
+    }
+
+    main>p {
+        margin-top: 15px;
+        margin-bottom: 80px;
+    }
 }

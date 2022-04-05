@@ -21,6 +21,8 @@
     --link-color: rgb(128, 124, 147);
     --link-color: rgb(196, 190, 225);
     --link-bottom-color: rgb(114 124 172 / 50%);
+    --link-hover-bottom-color: #659df1;
+    --link-hover-bottom-color: #727bac;
     --background: #1c1b22;
     --background-scroll: #2f2f32;
     --selectionCol: #6794ff;
@@ -77,6 +79,11 @@ ul {
 
 .pointer {
     cursor: pointer;
+}
+
+
+a.color {
+    color: var(--link-color);
 }
 
 body:not(.expand-menu) .menuStuff .projects .project,
@@ -212,8 +219,7 @@ header .menuCont, main, section .cards, .menuStuff {
 
 .lnk-hoverable:hover .lnk::after,
 .lnk:hover::after {
-    border: 1px solid #659df1;
-    border: 1px solid #727bac;
+    border: 1px solid var(--link-hover-bottom-color);
 }
 
 .menuCont {
@@ -385,6 +391,10 @@ body.menu .menuLink {
 
     .menuLink {
         display: none;
+    }
+
+    .menuStuff {
+        padding-top: 50px;
     }
 }
 

@@ -1,0 +1,105 @@
+@import url(./index.css);
+
+body {
+    background: var(--background);
+    --link-bottom-color: #acacac99;
+    --link-hover-bottom-color: var(--link-bottom-color);
+}
+
+main>h1 {
+    margin: calc(100px + var(--header-height)) auto 50px auto;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--secFont);
+}
+
+/* main>section h2+details>p, */
+/* main>section h2+p, */
+/* p:not(.other) { */
+p.text {
+    white-space: pre-line;
+}
+
+main>section+section {
+    margin-top: 25px;
+}
+
+main>section+section>:is(h2, details):first-of-type {
+    margin-top: 10px;
+}
+
+details>summary {
+    cursor: pointer;
+}
+
+main>setion details>summary {
+    text-transform: capitalize;
+}
+
+details>summary+*,
+details+details {
+    margin-top: 10px;
+}
+
+/* details>summary+* {
+    margin-top: 10px;
+} */
+section>h3,
+details>h3 {
+    margin: 15px auto;
+    text-transform: capitalize;
+}
+
+details.preview summary {
+    margin-bottom: 10px;
+}
+
+details>summary+img {
+    margin-top: 19px;
+    width: calc(100% - 20px);
+    width: 100%;
+    /* box-shadow: rgba(255, 253, 253, 0.24) 0px 1px 1px, rgba(0, 14, 38, 0.13) 0px 0px 1px 1px; */
+    border: 1px solid #393742;
+    border-radius: 5px;
+}
+
+.pages>details[open]~details:not([open]) {
+    opacity: .7;
+}
+
+.pages>details[open]::after {
+    content: "";
+    content: none;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transform: translateY(30px);
+    background: #ffffff2b;
+}
+
+details[open] {
+    padding-bottom: 50px;
+    padding-bottom: 30px;
+}
+
+.date {
+    margin: 10px 0;
+    font-size: 75%;
+    opacity: 0.7;
+}
+
+/* .page[data-path] summary::after {
+    content: " -" attr(data-path);
+    position: relative;
+    opacity: .7;
+} */
+
+.page[data-path] :first-child>a {
+    opacity: .5;
+    white-space: pre;
+}
+
+::selection {
+    color: #80d5ff;
+}
