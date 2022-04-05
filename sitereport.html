@@ -80,20 +80,20 @@
                 
                 <div class="date">
                     <time datetime="2022-03-31">March 31, 2022</time>
-                    <span>— blog page is created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/642e2973b3af8b8d417811601c0544be56925d00">642e2973b3af8b8d417811601c0544be56925d00</a>.
-                    </span>
+                    <span>— blog page created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/642e2973b3af8b8d417811601c0544be56925d00">642e2973b3af8b8d417811601c0544be56925d00</a>.</span>
                 </div>
 
                 <p>
-                    The blog page is a page where I display my school projects. I chose to use this page only for my school projects,
-                    as I had already chosen to display all my presonal projects on the homepage, see the part for the homepage for the reason why.
-                    My personal projects can also be found in the menu.
+                    The blog page is a page with a list of posts. Each post has a title, a short description, a date and an image.
+                    <br>
+                    I used grid for the columns. On a typical 1920x1080 screen, the blog page would have 3 columns of posts. On smaller screens,
+                    the blog page would have 2 columns or one depending on what fits.
                 </p>
                 
                 <h3>Design choices</h3>
                 
                 <details class="preview">
-                    <summary>View blog page screenshot</summary>
+                    <summary>View screenshot of the blog page</summary>
                     <img src="/assets/imgs/reports/blog.png" alt="Blog page image">
                 </details>
                 
@@ -108,12 +108,170 @@
             </details>
             <details class="page" data-path>
                 <summary>Home page <a href target="_blank"></a></summary>
+                
+                <div class="date">
+                    <time datetime="2020-12-18">December 18, 2020</time>
+                    <span>— Homepage created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/792031566e6f445aaf28cec0a3a5c95c1595bbca">792031566e6f445aaf28cec0a3a5c95c1595bbca</a>.</span>
+                </div>
+
+                <p>
+                    Before this assisgnment, I already had a personal website (hence the early date above) which already matched most of the requirements,
+                    with just a few things to add or change. Plus, it was already on GitHub pages. I decided to use this as the website for my assignment.
+                    Because this page is what people will see first, I chose it to showcase all my personal projects and my introduction.
+                </p>
+
+                <h3>Why academic projects are excluded from homepage & menu</h3>
+                
+                <p>
+                    I chose to exclude my academic projects on the homepage and from the 'projects' tab in the header because
+                    they would not be very interesting compared to my personal projects and they do not represent my skills as much as personal projects would.
+                </p>
+                
+                <h3>Design choices</h3>
+                
+                <details class="preview" open>
+                    <summary>Homepage screenshot</summary>
+                    <img src="/assets/imgs/reports/index.png" alt="Blog page image">
+                </details>
+                
+                <p>
+                    The design this time had no inspiration. I chose a simple but beutiful design for the homepage.
+                    On the top right I chose to have my introduction and projects on the button and in the header
+                    as well since the header will be the same on others pages but not all of them show projects except the homepage.
+                </p>
+
+                <h3>Theme switching & useful information</h3>
+
+                <p>
+                    Pressing the <span class="inline-icon i"></span> icon in the top right of the website, reveals buttons to switch
+                    themes in the bottom right and useful information like when the website was last updated in the bottom right.
+                    The date when the website was last updated is not added in manually, instead is retrieved through a get request
+                    to GitHubs API on the repo <a target="_blank" href="https://api.github.com/repos/Glitchii/glitchii.github.io" class="lnk">https://api.github.com/repos/Glitchii/glitchii.github.io</a> to get the date of the
+                    last commit in the repository. When a theme is selected, a value is stored in the local storage of the browser
+                    which is loaded when the website is accessed again to use the user's prefered theme. 
+                </p>
+
+                <details class="preview">
+                    <summary>Screenshot with <span class="inline-icon i"></span> clicked</summary>
+                    <img src="/assets/imgs/reports/index-min.png" alt="Blog page image">
+                </details>
+                <details class="preview">
+                    <summary>Screenshot of light theme</summary>
+                    <img src="/assets/imgs/reports/index-light.png" alt="Blog page image">
+                </details>
             </details>
-            <details class="page" data-path="/portofolio">
+            <details class="page" data-path="/portfolio">
                 <summary>Portfolio page <a href target="_blank"></a></summary>
+                
+                <div class="date">
+                    <time datetime="2022-04-04">April 4, 2022</time>
+                    <span>— Portfolio page created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/61cae085d39f2cea4fee32e0181e3351f9bb577a">61cae085d39f2cea4fee32e0181e3351f9bb577a</a>.</span>
+                </div>
+
+                <p>
+                    The portfolio page is a page where I display my school projects. I chose to use this page only for my school projects,
+                    as I had already chosen to display all my presonal projects on the homepage, see the part for the homepage for the reason why.
+                    My personal projects can also be found in the menu.
+                </p>
+                
+                <h3>Design choices</h3>
+                
+                <details class="preview">
+                    <summary>View screenshot of the portfolio page</summary>
+                    <img src="/assets/imgs/reports/portfolio.png" alt="Blog page image">
+                </details>
+                
+                <p>
+                    This page is using the same payout as the blog page with a some changes like the positioning of the images and background colour on a post etc.
+                </p>
             </details>
             <details class="page" data-path="/contact">
                 <summary>Contact page <a href target="_blank"></a></summary>
+                
+                <div class="date">
+                    <time datetime="2022-03-27">Mar 27, 2022</time>
+                    <span>— Contact page created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/52dad66f50474048eaeca21be3603010a94f93d7">52dad66f50474048eaeca21be3603010a94f93d7</a>.</span>
+                </div>
+
+                <p>
+                    The contact page contains a form where a user can optionally input their name, email and a mandantory message. Once submitted,
+                    the message is sent to my email address using the mailto protocol. Since the website is not dynamically served by myself (but instead by GitHub Pages),
+                    I do not have control over the server and thus cannot receive the form from the backend.
+                </p>
+                
+                <h3>Design choices</h3>
+                
+                <details class="preview">
+                    <summary>View screenshot of the contact page</summary>
+                    <img src="/assets/imgs/reports/contact.png" alt="Blog page image">
+                </details>
+                
+                <p>
+                    If you click 'contact' in the header of the <b>homepage</b>, instead of redirecting to a new window, the page will be loaded in the same window.
+                    Although a seperate page also exists if you middle click on the link, or go to /contact directly.
+                    <br>
+                    <br>
+                    Just like others pages, the contact page also includes the header, and has the same colour scheme as the other pages.
+                </p>
+            </details>
+            <details class="page" data-path="/sitereport" open>
+                <summary>Site report <a href target="_blank"></a></summary>
+                
+                <div class="date">
+                    <time datetime="2022-04-04">April 4, 2022</time>
+                    <span>— Contact page created on git commit <a target="_blank" class="lnk color" href="https://github.com/Glitchii/glitchii.github.io/commit/6e67a3d3ec4f4c0dccdc56b08b9f252c627fe4ad">6e67a3d3ec4f4c0dccdc56b08b9f252c627fe4ad</a>.</span>
+                </div>
+
+                <p>
+                    Lastly, I created a report page which contains a summary of the website. <br>
+                    This page contains design choices, information about the website and pages, & dates when each page was added (etc). <br>
+                    Version control &  GitHub came into play while writting this report as I could check GitHub to see when a page was added for the dates.
+                </p>
+                
+                <h3>Design choices</h3>
+                
+                <p>
+                    There is no reason to include a screenshot of this page, since you can see you are already looking at,
+                    but if still required—
+                </p>
+
+                <details class="preview">
+                    <summary>here it is</summary>
+                    <img src="/assets/imgs/reports/sitereport.png" alt="Blog page image">
+                </details>
+                
+                <p>
+                    As you have noticed already, I have used a lot of detail tags (to allow opening and closing sections of the report),
+                    this is to easen focusing on the one thing since there is a lot of text. Some images are also closed by defeault as they are too big.
+                </p>
+
+                <h3>Summary</h3>
+                
+                <p>
+                    Due to my headstart in in web development, I have had less of a bad experience working completing the assignment. <br>
+                    While JavaScript is not included in the assignment brief, I used it to make the website dynamic. <br>
+                    I used JavaScript in in many parts of the website to:
+                </p>
+
+                <ul>
+                    <li>Removing the loading screen on the homepage.</li>
+                    <li>Dynamically add projects to the projects list from an object t avoid repeating and updating multiple HTML files when I add a new project.</li>
+                    <li>Toggle the 'projects' menu in the header.</li>
+                    <li>Toggle the harmburger menu.</li>
+                    <li>Toggle & animate the 'contact' section in the homepage when 'contact' is clicked.</li>
+                    <li>Display the current URL in the 404 page</li>
+                    <li>Display the URL alongside the domain in the main detail tags on the sitereports page</li>
+                    <li>Alter the message to add author and email (if provided) at the end on an email when submited in the contact form</li>
+                </ul>
+
+                <p>
+                    The 404 page is also not required, but I have included it to have my own 404 page show when the user goes to a page that does not exists
+                    rather than showing GitHub Pages's default 404 page.
+
+                    <br>
+                    <br>
+                    Assignment completed on <time datetime="2022-04-05">April 5, 2022</time>, the date of writing this site report section.
+                </p>
             </details>
         </section>
     </main>
