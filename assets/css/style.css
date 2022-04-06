@@ -386,7 +386,7 @@ body.light .hbm div {
     font-family: var(--secFont);
 }
 
-main {
+.intro {
     margin-bottom: 100px;
     position: relative;
 }
@@ -424,6 +424,10 @@ body:is(.light, .dark) .aboutBtns .btn:hover {
 .window>section:first-of-type {
     width: 100%;
     top: 350px;
+}
+
+section>h4 {
+	margin: 20px 0;
 }
 
 .cards {
@@ -566,7 +570,7 @@ body.light .card img {
     font-family: var(--secFont);
 }
 
-main {
+.intro {
     animation: appear2 2s ease;
 }
 

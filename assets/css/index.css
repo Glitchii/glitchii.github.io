@@ -136,7 +136,7 @@ body.expand-menu header {
     padding-bottom: 20px;
 }
 
-header .menuCont, main, section .cards, .menuStuff {
+header .menuCont, main, .autoplace, section .cards, .menuStuff {
     margin: auto;
     padding-left: 12%;
     padding-right: 12%;

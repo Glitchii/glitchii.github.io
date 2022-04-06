@@ -15,7 +15,8 @@
 <body class="home notLoaded">
     <div class="windows">
         <section class="window active">
-            <img class="back-logo" src="/assets/imgs/titleIMG.png" />
+            <h4 class="autoplace hidden">Window 1</h4>
+            <img class="back-logo" src="/assets/imgs/titleIMG.png" alt/>
             <header>
                 <div class="menuCont">
                     <a class="menuLogo" href="./">Glitchii</a>
@@ -27,7 +28,7 @@
                                 <div class="last"></div>
                             </li>
                             <li class="menuLink has-arrow projects pointer"><a>Projects</a></li>
-                            <a class="menuLink about" href="#about">About me</a>
+                            <li class="menuLink about"><a href="#about">About me</a></li>
                             <li class="menuLink contact"><a target="_blank" href="/contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -36,7 +37,7 @@
                     <div class="projects">
                         <div class="project hidden">
                             <div class="top">
-                                <img src="" draggable="false" />
+                                <img src="/assets/imgs/empty.png" draggable="false" alt/>
                             </div>
                             <div class="bottom">
                             <p class="desc name"></p>
@@ -47,7 +48,7 @@
                     </div>
                 </div>
             </header>
-            <main>
+            <div class="intro autoplace">
                 <div class="cont">
                     <div id="about">
                         <div class="welcome">Hey, welcome to my website.<br></div>
@@ -61,8 +62,9 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
             <section id="section1">
+                <h4 class="autoplace hidden">My Projects</h4>
                 <div class="cont">
                     <div class="projs"><span>What I've worked on</span></div>
                     <div class="cards">
@@ -74,7 +76,7 @@
                                 </p>
                                 <a class="descLink frame" target="_blank" href="https://troybot.xyz">Try it out</a>
                             </div>
-                            <img src="./assets/imgs/Troy.png" draggable="false" />
+                            <img src="./assets/imgs/Troy.png" draggable="false" alt/>
     
                         </div>
                         <div class="card" style="--time: 2s">
@@ -85,7 +87,7 @@
                                 </p>
                                 <a class="descLink frame" target="_blank" href="https://tempfile.site">Website</a>
                             </div>
-                            <img src="/assets/imgs/tempfile.png" draggable="false" />
+                            <img src="/assets/imgs/tempfile.png" draggable="false" alt/>
                         </div>
                         <div class="card" style="--time: 3s">
                             <p class="title" data-brief="Commandline tools">Cli tools</p>
@@ -95,7 +97,7 @@
                                 </p>
                                 <a class="descLink" target="_blank" href="https://github.com/Glitchii/command-line-tools">Contribute</a>
                             </div>
-                            <img src="/assets/imgs/bash.svg" draggable="false" />
+                            <img src="/assets/imgs/bash.svg" draggable="false" alt/>
                         </div>
                         <div class="card embCard" style="--time: 4s">
                             <p class="title" data-brief="Discord Embed Builder">EmbedBuilder</p>
@@ -105,7 +107,7 @@
                                 </p>
                                 <a class="descLink" target="_blank" href="https://glitchii.github.io/embedbuilder/">Try it out</a>
                             </div>
-                            <img src="https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png" class="unequal" draggable="false" />
+                            <img src="https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png" class="unequal" draggable="false" alt/>
                         </div>
                         <div class="card comingSoon hidden" style="--time: 5s">
                             <p class="title" data-brief="Something'll be here soon">Coming Soon</p>
@@ -115,6 +117,7 @@
             </section>
         </section>
         <section class="window hidden">
+            <h4 class="autoplace hidden">Contact window</h4>
             <form class="contact" action="mailto:mail@tempfile.site">
                 <div class="title">Contact me</div>
                 <div class="field name">

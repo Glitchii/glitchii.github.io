@@ -59,24 +59,24 @@
             <p>
                 There are 6 HTML files in this assignment project. All HTML files are in the root directory of the project.
                 I made seperate folders for other files, such as js directory for JavaScript files, CSS for CSS files, imgs for images etc.
-                All the above folders are in the assets directory.
-                The index.html file is homepage. Most pages are linked in the header including the contact page and home page &
+                All non-HTML files/folders are in the assets directory.
+                The index.html holds HTML code for the homepage. Most pages are linked in the header including the contact page and home page &
                 some pages won't be displayed based on the active page. Since this is actually my personal website, I decided
-                not to include all pages eg. sitereport or blog in the the menu since they will be useless to most people coming
+                not to include some pages eg. sitereport, blog, & portofolio in the the menu since they will be useless to most people coming
                 to view my website.
                 <br>
                 <br>
                 While every HTML file has its own CSS and (if used) JS files, I also have global files such as index.css and index.js.
-                These files content required and used for all pages. index.css is imported in all CSS files with CSS's `@import` rule.
-                You can find this line on the first line of all CSS files except the index.css and 404.css. index.js is imported through all HTML files.
-                index.css has styles for content like the header which is on all pages and index.js has things like event listeners (etc) for the header and other global elements.
+                The code in these files are used by all pages. index.css is imported in all CSS files with CSS's `@import` rule.
+                You can find this line on the first line of all CSS files except the index.css (itself). index.js is imported through all HTML files.
+                index.css has styles for content like the header (which is the same HTML code in all HTML fiels except a few changes in links) which is on all pages and index.js has code like event listeners (etc) for the header and other global elements.
             </p>
         </section>
         
         <section class="pages">
             <h2>Pages</h2>
             <details class="page" data-path="/blog">
-                <summary>Blog page <a href target="_blank"></a></summary>
+                <summary>Blog page <a href="/" target="_blank"></a></summary>
                 
                 <div class="date">
                     <time datetime="2022-03-31">March 31, 2022</time>
@@ -107,7 +107,7 @@
                 </p>
             </details>
             <details class="page" data-path>
-                <summary>Home page <a href target="_blank"></a></summary>
+                <summary>Home page <a href="/" target="_blank"></a></summary>
                 
                 <div class="date">
                     <time datetime="2020-12-18">December 18, 2020</time>
@@ -161,7 +161,7 @@
                 </details>
             </details>
             <details class="page" data-path="/portfolio">
-                <summary>Portfolio page <a href target="_blank"></a></summary>
+                <summary>Portfolio page <a href="/" target="_blank"></a></summary>
                 
                 <div class="date">
                     <time datetime="2022-04-04">April 4, 2022</time>
@@ -186,7 +186,7 @@
                 </p>
             </details>
             <details class="page" data-path="/contact">
-                <summary>Contact page <a href target="_blank"></a></summary>
+                <summary>Contact page <a href="/" target="_blank"></a></summary>
                 
                 <div class="date">
                     <time datetime="2022-03-27">Mar 27, 2022</time>
@@ -215,7 +215,7 @@
                 </p>
             </details>
             <details class="page" data-path="/sitereport">
-                <summary>Site report <a href target="_blank"></a></summary>
+                <summary>Site report <a href="/" target="_blank"></a></summary>
                 
                 <div class="date">
                     <time datetime="2022-04-04">April 4, 2022</time>
