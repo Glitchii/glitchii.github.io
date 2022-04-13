@@ -77,13 +77,47 @@ ul {
     padding: 0;
 }
 
+a.color {
+    color: var(--link-color);
+}
+
 .pointer {
     cursor: pointer;
 }
 
+noscript {
+    opacity: 0;
+    pointer-events: none;
+    bottom: 0;
+    color: #ffffff9e;
+    animation: nojsAn 15s ease;
+    position: absolute;
+    left: 50%;
+    z-index: 15;
+    text-shadow: 0 0 0 #000;
+    transform: translate(-50%, -50%);
+}
 
-a.color {
-    color: var(--link-color);
+noscript+* .menuLinks .menuLink.projects {
+    display: none;
+}
+
+@keyframes nojsAn {
+    15% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 body:not(.expand-menu) .menuStuff .projects .project,

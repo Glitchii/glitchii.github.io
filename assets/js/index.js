@@ -42,12 +42,11 @@ projectsObject = [
 ]
 
 addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.nojs')?.remove();
     setTimeout(() => document.body.classList.remove('notLoaded'), 1000);
-    
+
     header = document.querySelector('header');
     projects = header?.querySelector('.menuLink.projects');
-    
+
     projects?.addEventListener('click', e => {
         const body = document.body;
         body.classList.toggle('expand-menu');

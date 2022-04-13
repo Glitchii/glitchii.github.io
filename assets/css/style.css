@@ -427,7 +427,7 @@ body:is(.light, .dark) .aboutBtns .btn:hover {
 }
 
 section>h4 {
-	margin: 20px 0;
+    margin: 20px 0;
 }
 
 .cards {
@@ -572,36 +572,6 @@ body.light .card img {
 
 .intro {
     animation: appear2 2s ease;
-}
-
-@keyframes nojsAn {
-    20% {
-        opacity: 0;
-    }
-
-    55% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.nojs {
-    opacity: 0;
-    pointer-events: none;
-    bottom: 0;
-    color: #ffffff9e;
-    animation: nojsAn 10s ease;
-    position: absolute;
-    left: 50%;
-    z-index: 12;
-    transform: translate(-50%, -50%);
 }
 
 @keyframes disappear {
