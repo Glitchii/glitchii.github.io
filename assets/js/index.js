@@ -43,6 +43,7 @@ projectsObject = [
 
 addEventListener('DOMContentLoaded', () => {
     setTimeout(() => document.body.classList.remove('notLoaded'), 1000);
+    document.querySelector('noscript')?.remove();
 
     header = document.querySelector('header');
     projects = header?.querySelector('.menuLink.projects');
