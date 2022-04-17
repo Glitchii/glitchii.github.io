@@ -1,7 +1,5 @@
 @import url(./blog.css);
 
-
-
 main>h1 {
     margin: calc(90px + var(--header-height)) auto auto auto;
 }

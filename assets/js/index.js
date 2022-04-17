@@ -1,77 +1,83 @@
-// This is a global file. It has content for all pages eg. header event listners, global variables etc.
+if (new URL(location).searchParams.get('troy') !== null)
+    // Inviting Troy (my discord bot)
+    location.href = 'https://discord.com/oauth2/authorize?client_id=663074487335649292&scope=bot&permissions=1479928959';
 
-// Array of projects for the header, so not to repeat the same code.
-projectsObject = [
-    {
-        name: 'Troy',
-        brief: 'Discord bot',
-        description: 'A new discord bot built for fun, music, moderation, and games.\nIt has a customisable prefix, allows custom commands, custom welcome and goodbye message etc.',
-        image: '/assets/imgs/Troy.png',
-        link: 'https://troybot.xyz/',
-    },
-    {
-        name: 'TempFile',
-        brief: 'Stores files temprarily',
-        description: 'A website that temporarily stores files that get deleted at a certain (chosen) time or date.',
-        image: '/assets/imgs/tempfile.png',
-        link: 'https://tempfile.site/',
-    },
-    {
-        name: 'Cli tools',
-        brief: 'Commandline tools',
-        description: 'Small cli tools I made because I find myself to need them quite a lot.',
-        image: '/assets/imgs/bash.svg',
-        link: 'https://github.com/Glitchii/command-line-tools',
-    },
-    {
-        name: 'EmbedBuilder',
-        brief: 'Discord Embed Builder',
-        description: 'Shows how a discord embed would look like from JSON input. The JSON data can then be used for my bot or any other that has embed command and uses the JSON format',
-        image: 'https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png',
-        link: 'https://glitchii.github.io/embedbuilder/',
-        unequal: true,
-    },
-    {
-        name: 'Rickroll-terminal',
-        brief: 'rickroll in name & host',
-        description: 'Changes name and host in the terminal to a rickroll after a command.',
-        image: '/assets/imgs/bash.svg',
-        link: 'https://github.com/Glitchii/rickroll-terminal',
-    },
-
-]
 
 addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => document.body.classList.remove('notLoaded'), 1000);
-    document.querySelector('noscript')?.remove();
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) document.body.classList.add(currentTheme);
 
-    header = document.querySelector('header');
-    projects = header?.querySelector('.menuLink.projects');
-
-    projects?.addEventListener('click', e => {
-        const body = document.body;
-        body.classList.toggle('expand-menu');
-        body.classList.toggle('projects');
+    document.querySelector('img').onerror = el => el.target.style.opacity = 0;
+    document.querySelector('.btn.aboutProjs').addEventListener('click', e => {
+        e.preventDefault();
+        projects.click();
     });
 
-    document.querySelector('.hbm')?.addEventListener('click', e => document.body.classList.toggle('menu'));
-    document.body.addEventListener('click', e => {
-        if (!(e.target.closest('header') || e.target.closest('.btn.aboutProjs') || e.target.closest('.outside')) && document.body.classList.contains('expand-menu'))
-            projects.click();
-    });
+    const win = document.querySelector('.window');
+    const win2 = document.querySelector('.window:nth-of-type(2)');
 
-    const defaultMenuProject = document.querySelector('.menuStuff .projects .project');
-    if (defaultMenuProject)
-        for (const obj of projectsObject) {
-            const newCard = defaultMenuProject.cloneNode(true);
-            newCard.querySelector('.desc.name').innerText = obj.name;
-            newCard.querySelector('.desc.small').innerText = obj.brief;
-            newCard.querySelector('.top img').src = obj.image;
-            newCard.querySelector('.desc.smaller').href = obj.link;
-            obj.unequal && newCard.querySelector('.top img').classList.add('unequal');
-            obj.description && newCard.setAttribute('title', obj.description);
+    for (const e of document.querySelectorAll('.outside.next'))
+        e.addEventListener('click', e => {
+            win.classList.toggle('active');
+            document.querySelector('.next:not(.invisible)').classList.add('invisible');
 
-            newCard.classList.remove('hidden');
-            defaultMenuProject.parentElement.insertBefore(newCard, defaultMenuProject);
+            if (e.target.closest('.next.close'))
+                document.querySelector('.outside.next:not(.close)')?.classList.remove('invisible');
+            else if (e.target.closest('.next'))
+                document.querySelector('.outside.next.close')?.classList.remove('invisible');
+
+            if (document.body.classList.contains('otherWindow')) {
+                document.body.classList.remove('otherWindow');
+                win.classList.remove('invisible');
+
+                win2.animate([{ left: '150%' }], { duration: 900, easing: 'ease' })
+                    .onfinish = () => win2.classList.add('hidden');
+
+                win.animate([{ left: '-150%' }, { left: '50%' }], { duration: 900, easing: 'ease' })
+            }
+        });
+
+    const updated = document.querySelector('.page-info .left .item.updated .value');
+    fetch('https://api.github.com/repos/Glitchii/glitchii.github.io')
+        .then(res => res.json())
+        .then(res => updated.innerText = new Date(res.pushed_at).toGMTString());
+
+    document.querySelector('.menuLink.contact').addEventListener('click', e => {
+        e.preventDefault();
+        if (!win2) return open(e.target.href);
+
+        const small = matchMedia('(max-width: 500px)').matches;
+        const next = noAnimation => {
+            const next = () => {
+                win.classList.add('invisible');
+                document.querySelector('form .field.message textarea').focus();
+            };
+            if (noAnimation) next();
+            else win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' }).onfinish = next;
+
+            win2.classList.remove('hidden');
+            document.body.classList.add('otherWindow');
+            // document.querySelectorAll('.outside.next').forEach(e => e.remove());
         }
+
+        if (!document.querySelector('.window.active')) next(small);
+        else {
+            document.querySelector('.outside.next:not(.close)').click();
+            small ? next(true) : setTimeout(next, 500)
+        }
+    });
+
+    for (const theme of document.querySelectorAll('.themes .theme[data-theme]'))
+        theme.addEventListener('click', e => {
+            const theme = e.target.dataset.theme;
+            if (theme) {
+                document.body.classList.remove('light', 'dark', 'darker');
+                document.body.classList.add(theme);
+
+                localStorage.removeItem('theme');
+                if (theme !== 'darker')
+                    // Darker theme is the default
+                    localStorage.setItem('theme', theme);
+            }
+        });
 });
