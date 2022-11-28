@@ -56,7 +56,15 @@ body.light .card {
     color: #0d0b1c;
 }
 
-a:hover:not(.menuLogo):not(.btn) {
+/* a:hover:not(.menuLogo):not(.btn) {
+    opacity: .6;
+} */
+
+a:hover[style*="--color"] {
+    color: var(--color);
+}
+
+a:hover:not(.menuLogo):not(.btn):not([style*="--color"]) {
     opacity: .6;
 }
 
@@ -529,7 +537,7 @@ body.light .card img {
 }
 
 .card .title:after {
-    content: " - " attr(data-brief);
+    content: " - "attr(data-brief);
     color: inherit;
     opacity: .5;
 }
