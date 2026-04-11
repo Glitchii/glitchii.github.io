@@ -4,80 +4,42 @@ if (new URL(location).searchParams.get('troy') !== null)
 
 
 addEventListener('DOMContentLoaded', () => {
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) document.body.classList.add(currentTheme);
+    const body = document.body;
 
-    document.querySelector('img').onerror = el => el.target.style.opacity = 0;
-    document.querySelector('.btn.aboutProjs').addEventListener('click', e => {
+    for (const image of document.querySelectorAll('.card img, .menuStuff .project img'))
+        image.addEventListener('error', () => image.style.opacity = 0);
+
+    document.querySelector('.btn.aboutProjs')?.addEventListener('click', e => {
         e.preventDefault();
-        projects.click();
+        document.querySelector('.menuLink.projects')?.click();
     });
 
-    const win = document.querySelector('.window');
-    const win2 = document.querySelector('.window:nth-of-type(2)');
+    const infoToggle = document.querySelector('.outside.info-toggle');
+    const infoClose = document.querySelector('.outside.info-close');
+    const mobileInfoToggle = document.querySelector('.menuInfoBtn');
+    const setPageInfoOpen = open => {
+        body.classList.toggle('page-info-open', open);
+        infoToggle?.classList.toggle('invisible', open);
+        infoClose?.classList.toggle('invisible', !open);
+        infoToggle?.setAttribute('aria-expanded', String(open));
+        infoClose?.setAttribute('aria-expanded', String(open));
+    };
 
-    for (const e of document.querySelectorAll('.outside.next'))
-        e.addEventListener('click', e => {
-            win.classList.toggle('active');
-            document.querySelector('.next:not(.invisible)').classList.add('invisible');
-
-            if (e.target.closest('.next.close'))
-                document.querySelector('.outside.next:not(.close)')?.classList.remove('invisible');
-            else if (e.target.closest('.next'))
-                document.querySelector('.outside.next.close')?.classList.remove('invisible');
-
-            if (document.body.classList.contains('otherWindow')) {
-                document.body.classList.remove('otherWindow');
-                win.classList.remove('invisible');
-
-                win2.animate([{ left: '150%' }], { duration: 900, easing: 'ease' })
-                    .onfinish = () => win2.classList.add('hidden');
-
-                win.animate([{ left: '-150%' }, { left: '50%' }], { duration: 900, easing: 'ease' })
-            }
-        });
+    infoToggle?.addEventListener('click', () => setPageInfoOpen(true));
+    infoClose?.addEventListener('click', () => setPageInfoOpen(false));
+    mobileInfoToggle?.addEventListener('click', () => {
+        setPageInfoOpen(!body.classList.contains('page-info-open'));
+        body.classList.remove('menu');
+    });
+    addEventListener('keydown', e => {
+        if (e.key === 'Escape' && body.classList.contains('page-info-open'))
+            setPageInfoOpen(false);
+    });
 
     const updated = document.querySelector('.page-info .left .item.updated .value');
-    fetch('https://api.github.com/repos/Glitchii/glitchii.github.io')
-        .then(res => res.json())
-        .then(res => updated.innerText = new Date(res.pushed_at).toGMTString());
-
-    document.querySelector('.menuLink.contact').addEventListener('click', e => {
-        e.preventDefault();
-        if (!win2) return open(e.target.href);
-
-        const small = matchMedia('(max-width: 500px)').matches;
-        const next = noAnimation => {
-            const next = () => {
-                win.classList.add('invisible');
-                document.querySelector('form .field.message textarea').focus();
-            };
-            if (noAnimation) next();
-            else win.animate([{ left: '-150%' }], { duration: 1000, easing: 'ease' }).onfinish = next;
-
-            win2.classList.remove('hidden');
-            document.body.classList.add('otherWindow');
-            // document.querySelectorAll('.outside.next').forEach(e => e.remove());
-        }
-
-        if (!document.querySelector('.window.active')) next(small);
-        else {
-            document.querySelector('.outside.next:not(.close)').click();
-            small ? next(true) : setTimeout(next, 500)
-        }
-    });
-
-    for (const theme of document.querySelectorAll('.themes .theme[data-theme]'))
-        theme.addEventListener('click', e => {
-            const theme = e.target.dataset.theme;
-            if (theme) {
-                document.body.classList.remove('light', 'dark', 'darker');
-                document.body.classList.add(theme);
-
-                localStorage.removeItem('theme');
-                if (theme !== 'darker')
-                    // Darker theme is the default
-                    localStorage.setItem('theme', theme);
-            }
-        });
+    if (updated)
+        fetch('https://api.github.com/repos/Glitchii/glitchii.github.io')
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(res => updated.innerText = new Date(res.pushed_at).toUTCString())
+            .catch(() => updated.innerText = 'Unavailable');
 });

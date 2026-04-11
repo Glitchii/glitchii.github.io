@@ -4,12 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glitchii</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/titleIMG.png">
-    <script src="/assets/js/global.js"></script>
-    <script src="/assets/js/contact.js"></script>
-    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/index.js" defer></script>
 </head>
 
 <body class="home notLoaded">
@@ -17,7 +15,7 @@
     <div class="windows">
         <section class="window active">
             <h4 class="autoplace hidden">Window 1</h4>
-            <img class="back-logo" src="/assets/imgs/titleIMG.png" alt/>
+            <img class="back-logo" src="/assets/imgs/titleIMG.png" alt="">
             <header>
                 <div class="menuCont">
                     <a class="menuLogo" href="./">Glitchii</a>
@@ -28,9 +26,11 @@
                                 <div class="second"></div>
                                 <div class="last"></div>
                             </li>
-                            <li class="menuLink has-arrow projects pointer"><a>Projects</a></li>
+                            <li class="menuLink has-arrow projects pointer"><a href="#section1">Projects</a></li>
                             <li class="menuLink about"><a href="#about">About me</a></li>
-                            <li class="menuLink contact"><a target="_blank" href="/contact">Contact</a></li>
+                            <li class="menuLink cv"><a href="/cv/">CV</a></li>
+                            <li class="menuLink contact"><a href="/contact.html">Contact</a></li>
+                            <li class="menuLink info-mobile"><button type="button" class="menuInfoBtn">Site tools</button></li>
                         </ul>
                     </nav>
                 </div>
@@ -38,12 +38,12 @@
                     <div class="projects">
                         <div class="project hidden">
                             <div class="top">
-                                <img src="/assets/imgs/empty.png" draggable="false" alt/>
+                                <img src="/assets/imgs/empty.png" draggable="false" alt="">
                             </div>
                             <div class="bottom">
                             <p class="desc name"></p>
                             <p class="desc small desc"></p>
-                            <a href="" class="desc small smaller pointer go lnk" target="_blank">Visit</a>
+                            <a href="" class="desc small smaller pointer go lnk" target="_blank" rel="noopener noreferrer">Visit</a>
                             </div>
                         </div>
                     </div>
@@ -52,14 +52,15 @@
             <div class="intro autoplace">
                 <div class="cont">
                     <div id="about">
-                        <h1 class="welcome">Hey, welcome to my website.<br></h1>
-                        Hey there, welcome to my website. Call me Glitchii.
-                        <br>I like web developing, designing, and programming in general.
-                        <br>I have experience in programming languages like Python, JavaScript, C# & Java.
-                        <br>Checkout a few of my projects below or on my <a target="_blank" class="lnk" href="https://github.com/Glitchii">Github</a>.
+                        <h1 class="welcome">Hey, I'm Ed<br></h1>
+                        Or Glitchii online.
+                        <br>I like making websites, building random tools, and exploring ideas that seem interesting.
+                        <br>This site is basically a collection of opensource things I've made, learned from, or had fun building.
+                        <br>Feel free to look around below or visit my <a target="_blank" rel="noopener noreferrer" class="lnk" href="https://github.com/Glitchii">GitHub</a>.
                         <div class="aboutBtns">
                             <a href="#section1" class="btn aboutProjs">Projects</a>
-                            <a target="_blank" class="btn aboutDiscord" href="https://github.com/Glitchii">My Github</a>
+                            <a class="btn aboutDiscord" href="/cv/">View CV</a>
+                            <a target="_blank" rel="noopener noreferrer" class="btn aboutDiscord" href="https://github.com/Glitchii">My GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -75,10 +76,9 @@
                                 <p class="desc">
                                     A new discord bot built for fun, music, moderation, and games.<br> It has a customisable prefix, allows custom commands, custom welcome and goodbye message etc.
                                 </p>
-                                <a class="descLink frame" target="_blank" href="https://troybot.xyz">Try it out</a>
+                                <a class="descLink frame" target="_blank" rel="noopener noreferrer" href="https://troybot.xyz">Try it out</a>
                             </div>
-                            <img src="./assets/imgs/Troy.png" draggable="false" alt/>
-    
+                            <img src="./assets/imgs/Troy.png" draggable="false" alt="Troy bot screenshot">
                         </div>
                         <div class="card" style="--time: 2s">
                             <p class="title" data-brief="Temp file storing">TempFile</p>
@@ -86,95 +86,68 @@
                                 <p class="desc">
                                     A website that temporarily stores files that get deleted at a certain (chosen) time or date.
                                 </p>
-                                <a class="descLink frame" target="_blank" href="https://tempfile.site">Website</a>
+                                <a class="descLink frame" target="_blank" rel="noopener noreferrer" href="https://tempfile.site">Website</a>
                             </div>
-                            <img src="/assets/imgs/tempfile.png" draggable="false" alt/>
+                            <img src="/assets/imgs/tempfile.png" draggable="false" alt="TempFile screenshot">
                         </div>
                         <div class="card" style="--time: 3s">
                             <p class="title" data-brief="Commandline tools">Cli tools</p>
                             <div class="projDesc">
                                 <p class="desc">
-                                    Small cli tools I made because I find myself to need them quite a lot. 
+                                    Small cli tools I made because I find myself to need them quite a lot.
                                 </p>
-                                <a class="descLink" target="_blank" href="https://github.com/Glitchii/command-line-tools">Contribute</a>
+                                <a class="descLink" target="_blank" rel="noopener noreferrer" href="https://github.com/Glitchii/command-line-tools">Contribute</a>
                             </div>
-                            <img src="/assets/imgs/bash.svg" draggable="false" alt/>
+                            <img src="/assets/imgs/bash.svg" draggable="false" alt="Bash logo">
                         </div>
                         <div class="card embCard" style="--time: 4s">
+                            <p class="title" data-brief="Commandline tools">Rickroll-terminal</p>
+                            <div class="projDesc">
+                                <p class="desc">
+                                    A small bash script that turns your terminal name and host into a Rickroll after each command.
+                                </p>
+                                <a class="descLink" target="_blank" rel="noopener noreferrer" href="https://github.com/Glitchii/rickroll-terminal">View source</a>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/Glitchii/rickroll-lyrics-PS1/main/terminal.png" draggable="false" alt="Bash logo">
+                        </div>
+                        <div class="card embCard" style="--time: 5s">
                             <p class="title" data-brief="Discord Embed Builder">EmbedBuilder</p>
                             <div class="projDesc">
                                 <p class="desc">
                                     Shows how a Discord embed would look like from JSON input. The JSON data can then be used for my bot or any other that has embed command and uses the JSON format
                                 </p>
-                                <a class="descLink" target="_blank" href="https://glitchii.github.io/embedbuilder/">Try it out</a>
+                                <a class="descLink" target="_blank" rel="noopener noreferrer" href="https://glitchii.github.io/embedbuilder/">Try it out</a>
                             </div>
-                            <img src="https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png" class="unequal" draggable="false" alt/>
-                        </div>
-                        <div class="card comingSoon hidden" style="--time: 5s">
-                            <p class="title" data-brief="Something'll be here soon">Coming Soon</p>
+                            <img src="https://raw.githubusercontent.com/Glitchii/embedbuilder/master/assets/media/gui.png" class="unequal" draggable="false" alt="EmbedBuilder screenshot">
                         </div>
                     </div>
                 </div>
             </section>
         </section>
-        <section class="window hidden">
-            <h4 class="autoplace hidden">Contact window</h4>
-            <form class="contact" action="mailto:darlion.thesis+from+site@gmail.com">
-                <div class="title">Contact me</div>
-                <div class="field name">
-                    <label for="name" data-after="(optional)">Your Name</label>
-                    <input type="text" id="name" name="subject" placeholder="John Doe">
-                    <div class="input-line"></div>
-                </div>
-                <div class="field email">
-                    <label for="email" data-after="(optional)">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@example.com">
-                    <div class="input-line"></div>
-                </div>
-                <div class="field message long">
-                    <label for="message">Message</label>
-                    <textarea name="body" placeholder="Your message here..." id="message" required></textarea>
-                    <div class="input-line"></div>
-                </div>
-                <div class="field submit notIput long">
-                    <button type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512.308 512.308" xml:space="preserve" fill="currentColor">
-                            <g>
-                                <path d="M505.878,36.682L110.763,431.69c8.542,4.163,17.911,6.351,27.413,6.4h67.669c5.661-0.015,11.092,2.236,15.083,6.251   l36.672,36.651c19.887,20.024,46.936,31.295,75.157,31.317c11.652-0.011,23.224-1.921,34.261-5.653   c38.05-12.475,65.726-45.46,71.403-85.099l72.085-342.4C513.948,64.89,512.311,49.871,505.878,36.682z"></path>
-                                <path d="M433.771,1.652L92.203,73.61C33.841,81.628-6.971,135.44,1.047,193.802c3.167,23.048,13.782,44.43,30.228,60.885   l36.651,36.651c4.006,4.005,6.255,9.439,6.251,15.104v67.669c0.049,9.502,2.237,18.872,6.4,27.413L475.627,6.41   C462.645,0.03,447.853-1.651,433.771,1.652z"></path>
-                            </g>
-                        </svg>
-                        <span>Send</span>
-                    </button>
-                </div>
-                <a  title="Open contact page in its own tab. For a shortcut, next time middle-click the contact button in the header"
-                    class="field reopen notIput long" href="contact" target="_blank">Click to open contact page in new tab</a>
-            </form>
-        </section>
     </div>
-    <div class="outside next pointer">
+    <button type="button" class="outside info-toggle pointer" aria-controls="site-tools" aria-expanded="false" aria-label="Show site info and theme controls">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
         </svg>
-    </div>
-    <div class="outside next close invisible pointer">
+    </button>
+    <button type="button" class="outside info-close pointer invisible" aria-controls="site-tools" aria-expanded="false" aria-label="Hide site info and theme controls">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
         </svg>
-    </div>
-    <div class="outside page-info">
+    </button>
+    <div class="outside page-info" id="site-tools">
         <div class="left">
             <div class="item updated">
                 <span class="key">Last updated:</span>
-                <span class="value">Uknown</span>
+                <span class="value">Unknown</span>
             </div>
             <div class="item source">
                 <span class="key">Source code :</span>
-                <a href="https://github.com/Glitchii/glitchii.github.io" class="value" target="_blank">https://github.com/Glitchii/glitchii.github.io</a>
+                <a href="https://github.com/Glitchii/glitchii.github.io" class="value" target="_blank" rel="noopener noreferrer">https://github.com/Glitchii/glitchii.github.io</a>
             </div>
-            <div class="item discord hidden">
-                <span class="key">My Discord &nbsp; :</span>
-                <span class="value">Λcє#0002 (Click the logo on the right)</span>
+            <div class="item discord">
+                <span class="key">My Email:</span>
+                <span class="value">edrine.kis+website@gmail.com</span>
             </div>
         </div>
         <div class="right">

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glitchii - Contact</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/contact.css">
-    <link rel="shortcut icon" href="./assets/imgs/titleIMG.png" type="image/x-icon">
-    <script src="./assets/js/global.js"></script>
-    <script src="./assets/js/contact.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
+    <link rel="shortcut icon" href="/assets/imgs/titleIMG.png" type="image/x-icon">
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/contact.js" defer></script>
 </head>
-<body class="contact seperate">
+<body class="contact separate notLoaded">
     <noscript>Please enable JavaScript, or manually remove the 'notLoaded' HTML class from the 'body' tag</noscript>
     <header>
         <div class="menuCont">
@@ -22,8 +22,9 @@
                         <div class="second"></div>
                         <div class="last"></div>
                     </li>
-                    <li class="menuLink has-arrow projects pointer"><a>Projects</a></li>
+                    <li class="menuLink has-arrow projects pointer"><a href="/#section1">Projects</a></li>
                     <li class="menuLink about"><a href="/">Home</a></li>
+                    <li class="menuLink cv"><a href="/cv/">CV</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,18 +32,18 @@
             <div class="projects">
                 <div class="project hidden">
                     <div class="top">
-                        <img src="/assets/imgs/empty.png" alt draggable="false" />
+                        <img src="/assets/imgs/empty.png" alt="" draggable="false">
                     </div>
                     <div class="bottom">
                     <p class="desc name"></p>
                     <p class="desc small desc"></p>
-                    <a href="" class="desc small smaller pointer go lnk" target="_blank">Visit</a>
+                    <a href="" class="desc small smaller pointer go lnk" target="_blank" rel="noopener noreferrer">Visit</a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <form class="contact" action="mailto:darlion.thesis+from+site@gmail.com">
+    <form class="contact" action="mailto:qkn2n77dz@relay.firefox.com">
         <div class="title">Contact me</div>
         <div class="field name">
             <label for="name" data-after="(optional)">Your Name</label>

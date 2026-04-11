@@ -1,20 +1,23 @@
-// Execute as soon as the DOM elements are loaded even if images and other media are not yet loaded.
 addEventListener('DOMContentLoaded', () => {
-    document.querySelector('form')?.addEventListener('submit', e => {
+    const form = document.querySelector('form.contact');
+    form?.addEventListener('submit', e => {
         e.preventDefault();
 
-        const name = document.querySelector('form .field.name input').value
-        const email = document.querySelector('form .field.email input').value
-        const mine = `darlion.thesis+${location.hostname}@gmail.com`
-        const body = `${document.querySelector('form .field.message textarea').value}\n\n`
-        const subject = `Message from ${name || email || location.href}`
+        const name = form.querySelector('.field.name input')?.value.trim() || '';
+        const email = form.querySelector('.field.email input')?.value.trim() || '';
+        const message = form.querySelector('.field.message textarea')?.value.trim() || '';
+        const mine = `edrine.kis+${location.hostname}@gmail.com`;
+        let body = `${message}\n\n`;
+        const subject = `Message from ${name || email || location.href}`;
 
-        if (!name && email) body += email;
+        if (!name && email)
+            body += email;
         else if (name) {
-            body += (name || email)
-            email && (body += ` (${email})`);
+            body += name;
+            if (email)
+                body += ` (${email})`;
         }
-        
-        open(`mailto:${mine}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + `\nSent from ${location.href}`)}`);
+
+        location.href = `mailto:${mine}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + `\nSent from ${location.href}`)}`;
     });
 });

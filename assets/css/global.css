@@ -18,10 +18,8 @@
 
 :root {
     --color: #fff;
-    --link-color: rgb(128, 124, 147);
     --link-color: rgb(196, 190, 225);
     --link-bottom-color: rgb(114 124 172 / 50%);
-    --link-hover-bottom-color: #659df1;
     --link-hover-bottom-color: #727bac;
     --background: #1c1b22;
     --background-scroll: #2f2f32;
@@ -30,14 +28,42 @@
     --mainFont: 'Heebo', sans-serif;
     --secFont: 'Ubuntu', sans-serif;
     --header-height: 55px;
-    --background-header: #212026;
-    --background-menu-project-box: #1f1e24b8;
-    --shadow-header: 0px 0px 50px -12px rgba(0, 0, 0, 0.46);
-    --border-bottom-header: 1px solid #312f3b;
     --background-header: #25242b;
-    --border-bottom-header: 1px solid #00000000;
+    --background-menu-project-box: #1f1e24b8;
     --shadow-header: 0px 0px 50px -12px rgba(0, 0, 0, 0.2);
+    --border-bottom-header: 1px solid transparent;
+    --background-body: #15141a;
+    --background-btns: #37363d;
+    --background-contact-line: #5b5a5ea3;
     color: var(--color);
+}
+
+body.dark {
+    --selectionCol: #659cf1;
+    --background: #26282e;
+    --background-scroll: #3d4149;
+    --background-header: #26282e;
+    --shadow-header: 0 0 20px 0 #00000080;
+    --border-bottom-header: 1px solid rgb(114 124 172 / 50%);
+    --background-menu-project-box: #212328;
+    --background-body: #1c1d22;
+    --background-btns: #34363e;
+    --background-contact-line: #46474a;
+}
+
+body.light {
+    --color: #0d0b1c;
+    --selectionCol: #2a6bd3;
+    --hoverCol2: rgb(28, 21, 12);
+    --background: #fff;
+    --background-scroll: #dbdbdb;
+    --background-header: #fff;
+    --shadow-header: 0px 0px 50px -12px rgba(0, 0, 0, 0.29);
+    --border-bottom-header: 1px solid rgb(114 124 172 / 50%);
+    --background-menu-project-box: #ebedef;
+    --background-body: #eee;
+    --background-btns: #e6e6e6;
+    --background-contact-line: #5e52522e;
 }
 
 ::-moz-selection {
@@ -65,12 +91,17 @@
     box-sizing: border-box;
     text-decoration: none;
     color: var(--hoverCol2);
-    font-family: var(--secFont);
     font-family: var(--mainFont);
     vertical-align: top;
     scrollbar-color: var(--background-scroll) var(--background);
     scrollbar-width: thin;
-    transition: all .3s ease;
+    transition:
+        color .3s ease,
+        background-color .3s ease,
+        border-color .3s ease,
+        opacity .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
 }
 
 ul {
