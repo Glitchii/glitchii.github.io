@@ -6,6 +6,7 @@ if (new URL(location).searchParams.get('troy') !== null)
 addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const isSmallScreen = matchMedia('(max-width: 500px)');
+    const pageInfo = document.querySelector('.page-info');
 
     for (const image of document.querySelectorAll('.card img, .menuStuff .project img'))
         image.addEventListener('error', () => image.style.opacity = 0);
@@ -18,16 +19,24 @@ addEventListener('DOMContentLoaded', () => {
     const infoToggle = document.querySelector('.outside.info-toggle');
     const infoClose = document.querySelector('.outside.info-close');
     const mobileInfoToggle = document.querySelector('.menuInfoBtn');
+    const syncPageInfoSpace = () => {
+        if (!pageInfo || !body.classList.contains('page-info-open')) {
+            body.style.removeProperty('--page-info-open-space');
+            return;
+        }
+
+        body.style.setProperty('--page-info-open-space', `${pageInfo.offsetHeight + 26}px`);
+    };
     const scrollSiteToolsIntoView = () => {
-        if (!isSmallScreen.matches)
+        if (!isSmallScreen.matches || !pageInfo)
             return;
 
         setTimeout(() => {
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
+            pageInfo.scrollIntoView({
+                block: 'end',
                 behavior: 'smooth',
             });
-        }, 90);
+        }, 180);
     };
     const setPageInfoOpen = open => {
         body.classList.toggle('page-info-open', open);
@@ -36,7 +45,10 @@ addEventListener('DOMContentLoaded', () => {
         infoToggle?.setAttribute('aria-expanded', String(open));
         infoClose?.setAttribute('aria-expanded', String(open));
 
-        open && scrollSiteToolsIntoView();
+        requestAnimationFrame(() => {
+            syncPageInfoSpace();
+            open && scrollSiteToolsIntoView();
+        });
     };
 
     infoToggle?.addEventListener('click', () => setPageInfoOpen(true));
@@ -49,11 +61,5 @@ addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && body.classList.contains('page-info-open'))
             setPageInfoOpen(false);
     });
-
-    const updated = document.querySelector('.page-info .left .item.updated .value');
-    if (updated)
-        fetch('https://api.github.com/repos/Glitchii/glitchii.github.io')
-            .then(res => res.ok ? res.json() : Promise.reject())
-            .then(res => updated.innerText = new Date(res.pushed_at).toUTCString())
-            .catch(() => updated.innerText = 'Unavailable');
+    addEventListener('resize', syncPageInfoSpace);
 });
