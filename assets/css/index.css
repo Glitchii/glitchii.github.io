@@ -77,11 +77,11 @@ body.notLoaded :is(.window> :not(.back-logo), .outside) {
 }
 
 body.page-info-open .window {
-    top: 46%;
-    width: calc(100% - 110px);
-    height: calc(100% - 155px);
-    border-radius: 18px;
-    box-shadow: 0 35px 70px -42px rgb(0 0 0 / 82%);
+    top: 44%;
+  width: calc(100% - 80px);
+  height: calc(100% - 163px);
+  border-radius: 18px;
+  box-shadow: 0 35px 70px -42px rgb(0 0 0 / 82%);
 }
 
 @keyframes fromBottom {
@@ -126,13 +126,13 @@ body.page-info-open .page-info {
     transform: translateX(-50%) translateY(0);
 }
 
-.page-info .left .item {
+/* .page-info .left .item {
     min-width: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 8px;
-}
+} */
 
 .page-info .left .item .value {
     opacity: .5;
@@ -162,6 +162,16 @@ body.page-info-open .page-info {
     backdrop-filter: blur(14px);
     box-shadow: 0 18px 40px -30px rgb(0 0 0 / 75%);
     transform: translateY(-50%);
+    transition: all .5s ease;
+}
+
+/* .page-info-open :is(.outside.info-toggle, .outside.info-close) {
+    border: none!important;
+} */
+
+body:not(.page-info-open) :is(.outside.info-toggle, .outside.info-close) {
+    border: none!important;
+    background: none;
 }
 
 .outside.info-toggle svg,
@@ -604,10 +614,10 @@ body.light .card img {
         border-radius: 16px;
     }
 
-    .page-info .left .item {
+    /* .page-info .left .item {
         display: grid;
         gap: 4px;
-    }
+    } */
 
     .page-info .right {
         justify-content: flex-start;
