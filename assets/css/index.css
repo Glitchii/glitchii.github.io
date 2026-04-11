@@ -71,6 +71,7 @@ body.notLoaded :is(.window> :not(.back-logo), .outside) {
         width .45s ease,
         height .45s ease,
         top .45s ease,
+        transform .45s ease,
         border-radius .45s ease,
         box-shadow .45s ease;
 }
@@ -91,10 +92,11 @@ body.page-info-open .window {
 
 .page-info {
     animation: fromBottom .5s ease;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
-    width: 90%;
+    width: min(calc(100% - 28px), 1120px);
     left: 50%;
+    z-index: 12;
     transform: translateX(-50%);
     font-size: 80%;
     display: grid;
@@ -112,6 +114,9 @@ body.page-info-open .window {
 }
 
 .page-info .left {
+    min-width: 0;
+    display: grid;
+    gap: 8px;
     opacity: .6;
 }
 
@@ -121,9 +126,18 @@ body.page-info-open .page-info {
     transform: translateX(-50%) translateY(0);
 }
 
+.page-info .left .item {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+}
+
 .page-info .left .item .value {
     opacity: .5;
-    margin-left: 10px;
+    margin-left: 0;
+    overflow-wrap: anywhere;
 }
 
 .page-info .right {
@@ -576,17 +590,23 @@ body.light .card img {
     }
 
     body.page-info-open .window {
-        width: calc(100% - 12px);
+        width: calc(100% - 10px);
         height: calc(100% - 205px);
-        top: calc(50% - 34px);
+        top: calc((100% - 205px) / 2);
     }
 
     .page-info {
-        width: calc(100% - 16px);
-        bottom: 8px;
+        width: calc(100% - 10px);
+        bottom: 5px;
         grid-template-columns: 1fr;
         gap: 14px;
-        padding: 16px;
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .page-info .left .item {
+        display: grid;
+        gap: 4px;
     }
 
     .page-info .right {

@@ -5,6 +5,7 @@ if (new URL(location).searchParams.get('troy') !== null)
 
 addEventListener('DOMContentLoaded', () => {
     const body = document.body;
+    const isSmallScreen = matchMedia('(max-width: 500px)');
 
     for (const image of document.querySelectorAll('.card img, .menuStuff .project img'))
         image.addEventListener('error', () => image.style.opacity = 0);
@@ -17,12 +18,25 @@ addEventListener('DOMContentLoaded', () => {
     const infoToggle = document.querySelector('.outside.info-toggle');
     const infoClose = document.querySelector('.outside.info-close');
     const mobileInfoToggle = document.querySelector('.menuInfoBtn');
+    const scrollSiteToolsIntoView = () => {
+        if (!isSmallScreen.matches)
+            return;
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth',
+            });
+        }, 90);
+    };
     const setPageInfoOpen = open => {
         body.classList.toggle('page-info-open', open);
         infoToggle?.classList.toggle('invisible', open);
         infoClose?.classList.toggle('invisible', !open);
         infoToggle?.setAttribute('aria-expanded', String(open));
         infoClose?.setAttribute('aria-expanded', String(open));
+
+        open && scrollSiteToolsIntoView();
     };
 
     infoToggle?.addEventListener('click', () => setPageInfoOpen(true));
