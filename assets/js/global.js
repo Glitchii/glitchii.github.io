@@ -44,7 +44,7 @@ const projectsObject = [
         description: 'Small cli tools I made because I find myself to need them quite a lot.',
         image: '/assets/imgs/bash.svg',
         link: 'https://github.com/Glitchii/command-line-tools',
-        cta: 'Contribute',
+        cta: 'View source',
         imageAlt: 'Bash logo',
     },
 
