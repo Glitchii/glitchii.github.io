@@ -5,8 +5,6 @@ if (new URL(location).searchParams.get('troy') !== null)
 
 addEventListener('DOMContentLoaded', () => {
     const body = document.body;
-    const isSmallScreen = matchMedia('(max-width: 500px)');
-    const pageInfo = document.querySelector('.page-info');
 
     for (const image of document.querySelectorAll('.card img, .menuStuff .project img'))
         image.addEventListener('error', () => image.style.opacity = 0);
@@ -19,24 +17,16 @@ addEventListener('DOMContentLoaded', () => {
     const infoToggle = document.querySelector('.outside.info-toggle');
     const infoClose = document.querySelector('.outside.info-close');
     const mobileInfoToggle = document.querySelector('.menuInfoBtn');
-    const syncPageInfoSpace = () => {
-        if (!pageInfo || !body.classList.contains('page-info-open')) {
-            body.style.removeProperty('--page-info-open-space');
-            return;
-        }
-
-        body.style.setProperty('--page-info-open-space', `${pageInfo.offsetHeight + 26}px`);
-    };
+    const scrollRoot = document.scrollingElement || document.documentElement;
     const scrollSiteToolsIntoView = () => {
-        if (!isSmallScreen.matches || !pageInfo)
-            return;
+        const scrollToBottom = () => scrollRoot.scrollTo({
+            top: scrollRoot.scrollHeight,
+            behavior: 'smooth',
+        });
 
-        setTimeout(() => {
-            pageInfo.scrollIntoView({
-                block: 'end',
-                behavior: 'smooth',
-            });
-        }, 180);
+        requestAnimationFrame(scrollToBottom);
+        setTimeout(scrollToBottom, 180);
+        setTimeout(scrollToBottom, 420);
     };
     const setPageInfoOpen = open => {
         body.classList.toggle('page-info-open', open);
@@ -45,10 +35,7 @@ addEventListener('DOMContentLoaded', () => {
         infoToggle?.setAttribute('aria-expanded', String(open));
         infoClose?.setAttribute('aria-expanded', String(open));
 
-        requestAnimationFrame(() => {
-            syncPageInfoSpace();
-            open && scrollSiteToolsIntoView();
-        });
+        open && scrollSiteToolsIntoView();
     };
 
     infoToggle?.addEventListener('click', () => setPageInfoOpen(true));
@@ -61,5 +48,4 @@ addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && body.classList.contains('page-info-open'))
             setPageInfoOpen(false);
     });
-    addEventListener('resize', syncPageInfoSpace);
 });

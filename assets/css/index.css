@@ -51,7 +51,7 @@ body.light {
     --background-card-head: var(--background-card);
     --background-descLink: #babcbf91;
     --page-info-bg: rgb(255 255 255 / 92%);
-    --page-info-border: rgb(42 107 211 / 14%);
+    --page-info-border: rgb(42 107 211 / 14%)
 }
 
 body.notLoaded :is(.window> :not(.back-logo), .outside) {
@@ -61,11 +61,7 @@ body.notLoaded :is(.window> :not(.back-logo), .outside) {
 .windows {
     position: relative;
     min-height: 100vh;
-    transition: min-height .45s ease;
-}
-
-body.page-info-open .windows {
-    min-height: calc(100vh - var(--page-info-open-space, 0px));
+    margin-bottom: 2.2%;
 }
 
 .window {
@@ -91,6 +87,7 @@ body.page-info-open .window {
     width: calc(100% - 80px);
     border-radius: 18px;
     box-shadow: 0 35px 70px -42px rgb(0 0 0 / 82%);
+    margin-top: 1%;
 }
 
 .page-info {
@@ -615,7 +612,9 @@ body.light .card img {
 
     body.page-info-open .window {
         width: calc(100% - 10px);
-        margin-top: 1%;
+        width: 100%;
+        border-radius: inherit;
+        margin: 0;
     }
 
     .page-info {
