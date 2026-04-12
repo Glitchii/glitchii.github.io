@@ -54,10 +54,6 @@ body.light {
     --page-info-border: rgb(42 107 211 / 14%)
 }
 
-body.notLoaded :is(.window> :not(.back-logo), .outside) {
-    display: none;
-}
-
 .windows {
     position: relative;
     min-height: 100vh;
@@ -273,40 +269,27 @@ body:not(.light):not(.dark) .themes .theme.darker::after,
     left: -7px;
 }
 
-@keyframes backLogoAn {
+:is(.window> :not(.back-logo), .outside) {
+    animation: reveal 1s ease-in-out forwards;
+}
+
+@keyframes reveal {
     0% {
-        opacity: 0;
+        display: none;
+    } 50% {
+        display: none;
     }
+}
 
-    40% {
-        height: 90%;
-        filter: saturate(0%);
-    }
-
-    45% {
-        filter: saturate(100%);
-    }
-
-    50% {
-        filter: saturate(0%);
-        opacity: .1;
-    }
-
-    55% {
-        filter: saturate(100%);
-    }
-
-    60% {
-        filter: saturate(0%);
-    }
-
-    65% {
-        filter: saturate(100%);
-    }
-
-    100% {
-        height: 100%;
-    }
+@keyframes backLogoAn {
+    0% { opacity: 0; }
+    40% { height: 90%; filter: saturate(0%); }
+    45% { filter: saturate(100%); }
+    50% { filter: saturate(0%); opacity: .1; }
+    55% { filter: saturate(100%); }
+    60% { filter: saturate(0%); }
+    65% { filter: saturate(100%); }
+    100% { height: 100%; }
 }
 
 .back-logo {
@@ -319,8 +302,6 @@ body:not(.light):not(.dark) .themes .theme.darker::after,
     transition: .5s ease;
     transform: translate(-50%, -50%);
     opacity: .03;
-    /* mask-image: linear-gradient(to bottom, #1c1b22, #1c1b22bc, #1c1b2200); */
-    /* -webkit-mask-image: linear-gradient(to bottom, #1c1b22, #1c1b22bc, #1c1b2200); */
 }
 
 body.light .back-logo {
