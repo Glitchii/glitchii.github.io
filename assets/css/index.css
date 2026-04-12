@@ -635,7 +635,8 @@ body.light .card img {
     }
 
     .outside.info-toggle,
-    .outside.info-close {
+    .outside.info-close,
+    .mobile-hide {
         display: none;
     }
 
