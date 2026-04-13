@@ -57,7 +57,6 @@ body.light {
 .windows {
     position: relative;
     min-height: 100vh;
-    margin-bottom: 2.2%;
 }
 
 .window {
@@ -77,6 +76,10 @@ body.light {
         transform .45s ease,
         border-radius .45s ease,
         box-shadow .45s ease;
+}
+
+body.page-info-open .windows {
+    margin-bottom: 2.2%;
 }
 
 body.page-info-open .window {
